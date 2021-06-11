@@ -3,17 +3,27 @@
  */
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { title, action } from "./counterComponent.module.css";
+
+const titleStyle = {
+	color: "blue"
+};
+
+const actionStyle = {
+	padding: "4x 10px",
+	background: "olive",
+	cursor: "pointer",
+	color: "white"
+};
 
 function Counter() {
 	let [value, setValue] = useState(0);
 
 	return (
 		<>
-			<h2 className={title}>React counter</h2>
-			<div className={action} onClick={() => setValue(value - 1)}>-</div>
+			<h2 style={titleStyle}>React counter</h2>
+			<div style={actionStyle} onClick={() => setValue(value - 1)}>-</div>
 			<div className="value">{value}</div>
-			<div className={action} onClick={() => setValue(value + 1)}>+</div>
+			<div style={actionStyle} onClick={() => setValue(value + 1)}>+</div>
 		</>
 	);
 }
@@ -28,5 +38,3 @@ export default class ReactCounter extends HTMLElement {
 }
 
 customElements.define("react-counter", ReactCounter);
-
-// ReactDOM.render(<Counter/>, document.body)
