@@ -2,7 +2,7 @@
  * @module counterComponent
  */
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import registerComponents from "../../helpers/registerComponents";
 
 const titleStyle = {
 	color: "blue"
@@ -15,7 +15,7 @@ const actionStyle = {
 	color: "white"
 };
 
-function Counter() {
+export default function ReactCounter() {
 	let [value, setValue] = useState(0);
 
 	return (
@@ -28,13 +28,6 @@ function Counter() {
 	);
 }
 
-export default class ReactCounter extends HTMLElement {
-	connectedCallback() {
-		const mountPoint = document.createElement("span");
-		this.attachShadow({ mode: "open" }).appendChild(mountPoint);
+ReactCounter.nodeName = "react-counter";
 
-		ReactDOM.render(<Counter/>, mountPoint);
-	}
-}
-
-customElements.define("react-counter", ReactCounter);
+registerComponents(ReactCounter)
