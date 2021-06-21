@@ -57,8 +57,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.12.17",
-    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
     "@princed/rescript-disable-eslint": "^2.0.0",
     "@rescripts/cli": "^0.0.16",
@@ -92,5 +92,9 @@
     "rescript-disable-eslint": "^1.0.1",
     "serve": "^12.0.0",
     "storybook": "^6.2.9"
+  },
+  "resolutions": {
+    "@babel/core": "7.13.15",
+    "@babel/preset-env": "7.13.15"
   }
 }
