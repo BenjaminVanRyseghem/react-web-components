@@ -1,9 +1,9 @@
 import React from "react";
-import ReactRouter from "./reactCounter";
+import ReactCounter from "./reactCounter";
 
 export default {
-	component: ReactRouter,
-	title: "Components/ReactRouter"
+	component: ReactCounter,
+	title: "Components/ReactCounter"
 };
 
-export const shows = () => <ReactRouter/>;
+export const shows = () => <ReactCounter/>;
