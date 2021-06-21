@@ -12,7 +12,7 @@ export default function registerComponent(reactComponent) {
 		throw new Error("Missing nodeName");
 	}
 
-	if(customElements.get(name)) {
+	if (customElements.get(name)) {
 		return;
 	}
 

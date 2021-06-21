@@ -16,19 +16,32 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "rescripts start",
     "debug": "serve dist",
     "build": "yarn run build:css && yarn run build:standalone",
     "build:externals": "NODE_ENV=production rollup -c",
     "build:standalone": "NODE_ENV=production rollup -c rollup.standalone.js",
-    "build:example": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:example": "rescripts build",
+    "test": "rescripts test",
+    "test-coverage": "rescripts test --coverage",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -44,15 +57,40 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@rollup/plugin-replace": "^2.4.2",
-    "node-sass": "^6.0.0",
-    "rollup": "^2.51.2",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-sass": "^1.2.2",
-    "serve": "^12.0.0"
+    "@babel/core": "^7.12.17",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.14.5",
+    "@princed/rescript-disable-eslint": "^2.0.0",
+    "@rescripts/cli": "^0.0.16",
+    "@rescripts/rescript-use-babel-config": "^0.0.12",
+    "@rescripts/utilities": "^0.0.8",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-backgrounds": "^5.3.21",
+    "@storybook/addon-centered": "^5.3.21",
+    "@storybook/addon-docs": "^5.3.21",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/addons": "^5.3.21",
+    "@storybook/cli": "^5.3.21",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
+    "babel-jest": "26.6.0",
+    "babel-loader": "8.1.0",
+    "babel-plugin-rewire": "^1.2.0",
+    "babel-preset-react-app": "^10.0.0",
+    "core-js": "^3.6.5",
+    "dotenv-webpack": "^1.7.0",
+    "eslint-config-benjamin-van-ryseghem": "^1.1.0",
+    "eslint-import-resolver-webpack": "^0.12.1",
+    "eslint-plugin-i18n-translated": "^1.0.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "eslint-utils": "^2.0.0",
+    "http-proxy-middleware": "^1.0.3",
+    "jest-enzyme": "^7.1.2",
+    "prop-types": "^15.7.2",
+    "rescript-disable-eslint": "^1.0.1",
+    "serve": "^12.0.0",
+    "storybook": "^6.2.9"
   }
 }

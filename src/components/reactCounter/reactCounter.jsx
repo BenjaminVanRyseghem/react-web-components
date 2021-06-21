@@ -1,8 +1,5 @@
-/**
- * @module counterComponent
- */
 import React, { useState } from "react";
-import registerComponent from "../../helpers/registerComponent";
+import registerComponent from "helpers/registerComponent";
 
 const titleStyle = {
 	color: "blue"
@@ -30,4 +27,4 @@ export default function ReactCounter() {
 
 ReactCounter.nodeName = "react-counter";
 
-registerComponent(ReactCounter)
+registerComponent(ReactCounter);

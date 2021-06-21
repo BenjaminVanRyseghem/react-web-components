@@ -1,2 +1,2 @@
 export * from "./components/chartExample/chartExample";
-export * from "./components/counterComponent/counterComponent";
+export * from "./components/reactCounter/reactCounter";
