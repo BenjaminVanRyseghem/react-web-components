@@ -6,9 +6,13 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "chart.js": "^3.3.2",
+    "chartjs-adapter-date-fns": "^1.1.0-beta.1",
+    "date-fns": "^2.22.1",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-chartjs-2": "^3.0.3",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-to-webcomponent": "^1.5.1",
@@ -16,14 +20,15 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "rescripts start",
-    "debug": "serve dist",
     "build": "rescripts build",
-    "test": "rescripts test",
-    "test-coverage": "rescripts test --coverage",
+    "build-storybook": "build-storybook -s public",
+    "debug": "serve dist",
     "eject": "react-scripts eject",
+    "lint": "npx eslint  --ext .jsx --ext .js src",
+    "start": "rescripts start",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "test": "rescripts test",
+    "test-coverage": "rescripts test --coverage"
   },
   "eslintConfig": {
     "extends": [
