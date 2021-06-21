@@ -4,9 +4,9 @@ A PoC to investigate the usability of web component built with React
 
 ## Builds
 
-Rollup is used to build two output
-- a standalone version embedding React
-- a dependent version which requires React (and ReactDOM) to be preloaded
+```
+$ yarn run build
+```
 
 ## Notes
 

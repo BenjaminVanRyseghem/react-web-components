@@ -18,10 +18,7 @@
   "scripts": {
     "start": "rescripts start",
     "debug": "serve dist",
-    "build": "yarn run build:css && yarn run build:standalone",
-    "build:externals": "NODE_ENV=production rollup -c",
-    "build:standalone": "NODE_ENV=production rollup -c rollup.standalone.js",
-    "build:example": "rescripts build",
+    "build": "rescripts build",
     "test": "rescripts test",
     "test-coverage": "rescripts test --coverage",
     "eject": "react-scripts eject",
