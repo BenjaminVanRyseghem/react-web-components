@@ -1,7 +1,7 @@
 // eslint-disable-next-line filenames/match-exported,filenames/match-regex
 import "chartjs-adapter-date-fns";
 import ChartComponent from "react-chartjs-2";
-import {format} from "date-fns";
+import { format } from "date-fns";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
 
@@ -80,7 +80,7 @@ const config = {
 		plugins: {
 			tooltip: {
 				callbacks: {
-					title,
+					title
 				}
 			},
 			legend: {
