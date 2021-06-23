@@ -22,7 +22,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      - uses: c-hive/gha-yarn-cache@v2
       - name: Install yarn
         run: yarn
       # Runs a single command using the runners shell
