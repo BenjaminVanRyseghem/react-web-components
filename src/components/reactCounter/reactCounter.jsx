@@ -10,9 +10,9 @@ export default function ReactCounter() {
 		<>
 		  <link href={wkCssFundamentalsPath} rel="stylesheet"/>
 		  <h2>React counter</h2>
-		  <button className="wk-button" onClick={() => setValue(value - 1)}>Increase</button>
+		  <button className="wk-button" onClick={() => setValue(value - 1)}>Decrease</button>
 		  <h1>{value}</h1>
-		  <button className="wk-button" onClick={() => setValue(value + 1)}>Decrease</button>
+		  <button className="wk-button" onClick={() => setValue(value + 1)}>Increase</button>
 		</>
 	);
 }
