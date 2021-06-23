@@ -1,69 +1,80 @@
 // eslint-disable-next-line filenames/match-exported,filenames/match-regex
 import "chartjs-adapter-date-fns";
+import annualTrend from "./annual-trend.json";
 import ChartComponent from "react-chartjs-2";
 import { format } from "date-fns";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
 
-const rawData = [
-	{
-		date: new Date(2020, 0, 1),
-		income: 4000,
-		liabilities: 0.2400
-	},
-	{
-		date: new Date(2020, 1, 1),
-		income: 2390,
-		liabilities: 0.3800
-	},
-	{
-		date: new Date(2020, 2, 1),
-		income: 2390,
-		liabilities: 0.2390
-	},
-	{
-		date: new Date(2020, 3, 1),
-		income: 2390,
-		liabilities: 0.3800
-	}
+const dates = [
+	new Date(2020, 0, 1),
+	new Date(2020, 1, 1),
+	new Date(2020, 2, 1),
+	new Date(2020, 3, 1),
+	new Date(2020, 4, 1),
+	new Date(2020, 5, 1),
+	new Date(2020, 6, 1),
+	new Date(2020, 7, 1),
+	new Date(2020, 8, 1),
+	new Date(2020, 9, 1)
 ];
 
-function buildData(data) {
-	let result = {
-		labels: [],
-		income: [],
-		liabilities: []
-	};
-	data.forEach(({ date, income, liabilities }) => {
-		result.labels.push(date);
-		result.income.push(income);
-		result.liabilities.push(liabilities);
-	});
+const data = {
+	labels: dates,
+	datasets: [
+		{
+			label: "Loss",
+			data: annualTrend.profitTrend,
+			borderColor: "#F00",
+			hoverBackgroundColor: "#FED009",
+			backgroundColor: "#EA8F00",
+			order: 2,
+			yAxisID: "currency-axis",
+			legendOrder: 0
+		},
+		{
+			label: "YTD Profit",
+			data: annualTrend.accumulatedProfitTrend,
+			borderColor: "#85BC20",
+			backgroundColor: "#eee",
+			type: "line",
+			order: 0,
+			yAxisID: "currency-axis",
+			legendOrder: 1,
+			pointRadius: 7,
+			pointHoverRadius: 10,
+			pointBorderWidth: 3,
+			pointHoverBorderWidth: 3
+		},
+		{
+			label: "Income",
+			data: annualTrend.incomeTrend,
+			borderColor: "#F00",
+			hoverBackgroundColor: "#888888",
+			backgroundColor: "#474747",
+			order: 1,
+			yAxisID: "currency-axis",
+			legendOrder: 2,
+			hidden: true
+		},
+		{
+			label: "YTD Income",
+			data: annualTrend.accumulatedIncomeTrend,
+			borderColor: "#474747",
+			backgroundColor: "#eee",
+			type: "line",
+			order: 3,
+			yAxisID: "currency-axis",
+			legendOrder: 3,
+			hidden: true,
+			pointRadius: 7,
+			pointHoverRadius: 10,
+			pointBorderWidth: 3,
+			pointHoverBorderWidth: 3
 
-	return {
-		labels: result.labels,
-		datasets: [
-			{
-				label: "Income",
-				data: result.income,
-				borderColor: "#F00",
-				hoverBackgroundColor: "#00F",
-				backgroundColor: "#F00",
-				order: 1,
-				yAxisID: "income-axe"
-			},
-			{
-				label: "Liabilities",
-				data: result.liabilities,
-				borderColor: "#0F0",
-				backgroundColor: "#eee",
-				type: "line",
-				order: 0,
-				yAxisID: "liabilities-axe"
-			}
-		]
-	};
-}
+		}
+	]
+};
 
 function title(tooltipItem) {
 	return format(new Date(tooltipItem[0].parsed.x), "LLLL yyyy");
@@ -71,10 +82,10 @@ function title(tooltipItem) {
 
 const config = {
 	type: "bar",
-	data: buildData(rawData),
+	data,
 	options: {
 		animation: {
-			duration: 0
+			duration: 350
 		},
 		responsive: true,
 		plugins: {
@@ -84,7 +95,17 @@ const config = {
 				}
 			},
 			legend: {
-				position: "top"
+				position: "bottom",
+
+				labels: {
+					// generateLabels: () => ["foo"],
+					sort: (legend1, legend2, { datasets }) => {
+						let dataset1 = datasets[legend1.datasetIndex];
+						let dataset2 = datasets[legend2.datasetIndex];
+
+						return dataset1.legendOrder < dataset2.legendOrder ? -1 : 1;
+					}
+				}
 			},
 			title: {
 				display: true,
@@ -100,14 +121,15 @@ const config = {
 					unit: "month"
 				}
 			},
-			"income-axe": {
+			"currency-axis": {
 				type: "linear",
-				position: "left"
-
+				position: "left",
+				display: false
 			},
-			"liabilities-axe": {
+			"percentage-axis": {
 				type: "linear",
 				position: "right",
+				display: false,
 				ticks: {
 					max: 1,
 					min: 0
