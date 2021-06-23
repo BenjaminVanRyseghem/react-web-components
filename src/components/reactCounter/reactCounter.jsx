@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import registerComponent from "helpers/registerComponent";
 
-const titleStyle = {
-	color: "blue"
-};
+// const wkCssFundamentalsPath = "https://cdn.wolterskluwer.io/wk/fundamentals/1.x.x/all.min.css";
 
-const actionStyle = {
-	padding: "4x 10px",
-	background: "olive",
-	cursor: "pointer",
-	color: "white"
-};
+/* eslint-disable-next-line no-process-env */
+const wkCssFundamentalsPath = `${process.env.PUBLIC_URL}/all.min.css`;
 
 export default function ReactCounter() {
 	let [value, setValue] = useState(0);
 
 	return (
 		<>
-			<h2 style={titleStyle}>React counter</h2>
-			<div style={actionStyle} onClick={() => setValue(value - 1)}>-</div>
-			<div className="value">{value}</div>
-			<div style={actionStyle} onClick={() => setValue(value + 1)}>+</div>
+		  <link href={wkCssFundamentalsPath} rel="stylesheet"/>
+		  <h2>React counter</h2>
+		  <button className="wk-button" onClick={() => setValue(value - 1)}>Increase</button>
+		  <h1>{value}</h1>
+		  <button className="wk-button" onClick={() => setValue(value + 1)}>Decrease</button>
 		</>
 	);
 }
