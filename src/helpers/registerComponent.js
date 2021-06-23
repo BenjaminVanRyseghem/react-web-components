@@ -13,8 +13,9 @@ export default function registerComponent(reactComponent) {
 	}
 
 	if (customElements.get(name)) {
-		return;
+		return reactComponent;
 	}
 
 	customElements.define(name, reactToWebComponent(reactComponent, React, ReactDOM, { shadow: true }));
+	return reactComponent;
 }
