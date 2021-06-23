@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import registerComponent from "helpers/registerComponent";
 
-// const wkCssFundamentalsPath = "https://cdn.wolterskluwer.io/wk/fundamentals/1.x.x/all.min.css";
-
-/* eslint-disable-next-line no-process-env */
-const wkCssFundamentalsPath = `${process.env.PUBLIC_URL}/all.min.css`;
+const wkCssFundamentalsPath = "https://files.petton.fr/cassou/temp/all.min.css";
 
 export default function ReactCounter() {
 	let [value, setValue] = useState(0);
