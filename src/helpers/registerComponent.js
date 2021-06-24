@@ -11,7 +11,7 @@ export default function registerComponent(reactComponent) {
 	let name = reactComponent.nodeName;
 	let componentWithStyles = withWKStyle(reactComponent);
 
-	// Only for storybook, in webcomponents, it gets overridden line 30;
+	// Only for storybook, in webcomponents, it gets overridden in WithCustomEvent.constructor
 	reactComponent.triggerExpandView = () => {
 		if (componentWithStyles.triggerExpandView) {
 			componentWithStyles.triggerExpandView();
