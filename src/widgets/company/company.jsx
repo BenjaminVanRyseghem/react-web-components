@@ -27,6 +27,6 @@ function Company() {
 	);
 }
 
-Company.nodeName = "finsit-profit-and-loss";
+Company.nodeName = "finsit-company";
 
 export default registerComponent(Company);
