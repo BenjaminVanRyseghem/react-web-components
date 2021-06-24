@@ -2,7 +2,6 @@
   "files": {
     "main.js": "/widgethon/bundle.js",
     "main.js.map": "/widgethon/bundle.js.map",
-    "bundle.js.LICENSE.txt": "/widgethon/bundle.js.LICENSE.txt",
     "index.html": "/widgethon/index.html",
     "static/media/johan.4aa648a0.png": "/widgethon/static/media/johan.4aa648a0.png"
   },
