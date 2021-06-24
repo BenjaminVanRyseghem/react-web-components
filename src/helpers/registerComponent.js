@@ -25,9 +25,14 @@ export default function registerComponent(reactComponent) {
 		constructor() {
 			super(...arguments);
 
+			reactComponent.triggerExpandView = () => this.expandView();
+		}
+
+		expandView() {
 			let expandViewEvent = new CustomEvent("expandedviewopened", {
 				detail: "expanded view triggered from sample web component"
 			});
+
 			this.dispatchEvent(expandViewEvent);
 		}
 	}

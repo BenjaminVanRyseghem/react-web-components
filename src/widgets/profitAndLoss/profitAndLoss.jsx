@@ -76,13 +76,9 @@ const data = {
 	]
 };
 
-function expandView() {
-	let component = document.querySelector(ProfitAndLoss.nodeName);
-	let event = new CustomEvent("expandedviewopened", {
-		detail: "Expanded view triggered"
-	});
-	component.dispatchEvent(event);
-}
+const expandView = () => {
+	ProfitAndLoss.triggerExpandView();
+};
 
 function ProfitAndLoss() {
 	return (
