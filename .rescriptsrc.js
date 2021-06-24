@@ -11,10 +11,10 @@ module.exports = [
 			return result;
 		},
 		webpack: (webpack) => {
+			debugger;
 			webpack.plugins = webpack.plugins.filter((plugin) => plugin.key !== "ESLintWebpackPlugin")
 			webpack.resolve.modules = webpackConfig.resolve.modules;
 			webpack.resolve.extensions = webpackConfig.resolve.extensions;
-			webpack.optimization.minimize = false;
 			webpack.optimization.splitChunks = webpackConfig.optimization.splitChunks;
 			webpack.optimization.runtimeChunk = webpackConfig.optimization.runtimeChunk;
 			webpack.output.filename = webpackConfig.output.filename;
