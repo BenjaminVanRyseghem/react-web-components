@@ -1,6 +1,6 @@
 /* eslint-disable filenames/match-exported,filenames/match-regex */
 import React from "react";
-import style from "./style.scss";
+import style from "../style.scss";
 
 /**
  * Inject WK style inside the shadow DOM

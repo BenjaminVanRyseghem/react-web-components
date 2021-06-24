@@ -17,6 +17,7 @@ export default class PeriodReportCardList extends React.Component {
 			<div className="period-report-card-list">
 				{this.props.summaries.map((summary) => <PeriodReportCard
 					key={summary.id}
+					isNew={summary.isNew}
 					summary={summary}
 					onExpandView={this.props.onExpandView}
 				/>)}
