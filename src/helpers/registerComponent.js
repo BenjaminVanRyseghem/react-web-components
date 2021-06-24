@@ -41,7 +41,7 @@ export default function registerComponent(reactComponent) {
 
 	customElements.define(name, WithCustomEvent);
 
-	// Only for storybook, in webcomponents, it gets overriden line 30;
+	// Only for storybook, in webcomponents, it gets overridden line 30;
 	reactComponent.triggerExpandView = () => {
 		if (componentWithStyles.triggerExpandView) {
 			componentWithStyles.triggerExpandView();
