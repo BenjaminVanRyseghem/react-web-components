@@ -37,7 +37,7 @@ export default function withWKStyle(Component) {
 			.widget-content.expanded {
 				display: flex;
 				gap: 10px;
-				height: auto;
+				height: 470px;
 				overflow: initial;
 			}
 
