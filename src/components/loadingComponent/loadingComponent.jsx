@@ -47,8 +47,16 @@ export default class LoadingComponent extends React.Component {
 
 		return (
 			<div className="loadingComponent">
-				{React.cloneElement(this.props.children, { [this.props.as]: this.state.data })}
+			  {this.renderChild()}
 			</div>
 		);
+	}
+
+	renderChild() {
+		let childProps = { [this.props.as]: this.state.data };
+
+		return typeof this.props.children === "function"
+			? this.props.children(childProps)
+			: React.cloneElement(this.props.children, { [this.props.as]: this.state.data });
 	}
 }

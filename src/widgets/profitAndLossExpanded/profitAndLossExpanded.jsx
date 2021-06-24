@@ -88,19 +88,22 @@ class ProfitAndLoss extends React.Component {
 
 	render() {
 		return (
-			<div>
-			  <ProfitAndLossLegend
-				datasets={data.datasets}
-				includeShowMore={false}
-				isSmall={false}
-				onToggleDataset={this.toggleDataset.bind(this)}
-				onTriggerExpandView={ProfitAndLoss.triggerExpandView}
-			  />
+			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
+			  {({ chartData }) => (
+				  <>
+					<ProfitAndLossLegend
+					  datasets={data.datasets}
+					  includeShowMore={false}
+					  isSmall={false}
+					  onToggleDataset={this.toggleDataset.bind(this)}
+					  onTriggerExpandView={ProfitAndLoss.triggerExpandView}
+					/>
 
-			  <FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-				<ProfitAndLossChart ref={(ref) => (this.ref = ref)} />
-			  </FakeLoadingComponent>
-			</div>
+					<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData} />
+				  </>
+			  )}
+
+			</FakeLoadingComponent>
 		);
 	}
 }
