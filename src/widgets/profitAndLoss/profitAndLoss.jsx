@@ -25,7 +25,6 @@ const data = {
 		{
 			label: "Loss",
 			data: annualTrend.profitTrend,
-			borderColor: "#F00",
 			hoverBackgroundColor: lightOrange,
 			backgroundColor: orange,
 			order: 2,
@@ -49,7 +48,6 @@ const data = {
 		{
 			label: "Income",
 			data: annualTrend.incomeTrend,
-			borderColor: "#F00",
 			hoverBackgroundColor: grey,
 			backgroundColor: black,
 			order: 1,
@@ -76,20 +74,75 @@ const data = {
 	]
 };
 
-const expandView = () => {
-	ProfitAndLoss.triggerExpandView();
+const buttonGroupStyle = {
+	marginRight: 4,
+	marginLeft: 4,
+	display: "flex"
 };
 
-function ProfitAndLoss() {
-	return (
-		<div className="widget-content">
-		  <button className="wk-button" onClick={expandView}>Expand view</button>
+const buttonStyle = {
+	marginRight: 4,
+	flex: "0 1 20%"
+};
 
-			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-				<ProfitAndLossChart/>
-			</FakeLoadingComponent>
-		</div>
-	);
+class ProfitAndLoss extends React.Component {
+	toggleDataset(dataset, index, { target }) {
+		this.ref.toggleDataset(index);
+		target.classList.toggle("inactive");
+	}
+
+	renderLegendItem(dataset, index) {
+		let isDisabled = dataset.hidden;
+		return (
+			<button
+				key={index}
+				className={`wk-button ${isDisabled ? "inactive" : ""}`}
+				style={{
+					...buttonStyle,
+					backgroundColor: dataset.type === "line" ? dataset.borderColor : dataset.backgroundColor
+				}}
+				onClick={this.toggleDataset.bind(this, dataset, index)}
+			>
+				{dataset.label}
+			</button>
+		);
+	}
+
+	renderMoreButton() {
+		return (
+			<button
+				className="wk-button wk-button-text wk-button-icon-right"
+				style={buttonStyle}
+				type="button"
+				onClick={() => ProfitAndLoss.triggerExpandView()}
+			>
+				Show more<span aria-hidden="true" className="wk-icon-arrow-right"></span>
+			</button>
+		);
+	}
+
+	render() {
+		return (
+			<>
+				<style>{`
+					.wk-button.inactive {
+						background-color: #ccc !important;
+					}
+				`}</style>
+				<div className="widget-toolbar">
+					<div className="wk-button-group-right" style={buttonGroupStyle}>
+						{data.datasets.map(this.renderLegendItem.bind(this))}
+						{this.renderMoreButton()}
+					</div>
+				</div>
+				<div className="widget-content">
+					<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
+						<ProfitAndLossChart ref={(ref) => (this.ref = ref)} small/>
+					</FakeLoadingComponent>
+				</div>
+			</>
+		);
+	}
 }
 
 ProfitAndLoss.nodeName = "finsit-profit-and-loss";

@@ -23,6 +23,15 @@ export default class ProfitAndLossChart extends React.Component {
 		return format(new Date(tooltipItem[0].parsed.x), "LLLL yyyy");
 	}
 
+	toggleDataset(index) {
+		let ci = this.ref;
+		if (ci.isDatasetVisible(index)) {
+			ci.hide(index);
+		} else {
+			ci.show(index);
+		}
+	}
+
 	buildConfig() {
 		return {
 			type: "bar",
@@ -41,7 +50,7 @@ export default class ProfitAndLossChart extends React.Component {
 								chartArea.top,
 								chartArea.right - chartArea.left,
 								chartArea.bottom - chartArea.top
-);
+							);
 							ctx.restore();
 						}
 					}
@@ -63,16 +72,7 @@ export default class ProfitAndLossChart extends React.Component {
 						}
 					},
 					legend: {
-						position: "bottom",
-
-						labels: {
-							sort: (legend1, legend2, { datasets }) => {
-								let dataset1 = datasets[legend1.datasetIndex];
-								let dataset2 = datasets[legend2.datasetIndex];
-
-								return dataset1.legendOrder < dataset2.legendOrder ? -1 : 1;
-							}
-						}
+						display: false
 					}
 				},
 				scales: {
@@ -109,10 +109,13 @@ export default class ProfitAndLossChart extends React.Component {
 	render() {
 		return (
 			<div className="chartExample" style={{
-				height: 294,
+				height: this.props.small ? 254 : 294,
 				width: "100%"
 			}}>
-				<ChartComponent {...this.buildConfig()} />
+				<ChartComponent
+					ref={(ref) => (this.ref = ref)}
+					{...this.buildConfig()}
+				/>
 			</div>
 		);
 	}
