@@ -30,3 +30,13 @@
 h3 {
 	margin-bottom: .8rem;
 }
+
+.hide-on-small {
+	display: none;
+}
+
+.wk-col-10, .expanded {
+	.hide-on-small {
+		display: block;
+	}
+}

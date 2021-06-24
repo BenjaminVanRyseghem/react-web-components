@@ -42,7 +42,7 @@ function renderLegendItem({ dataset, index, onToggleDataset, includeShowMore }) 
 	return (
 		<button
 			key={index}
-			className={`wk-button ${isDisabled ? "inactive" : ""}`}
+			className={`wk-button hide-on-small ${isDisabled ? "inactive" : ""}`}
 			style={{
 				...buttonStyle(includeShowMore),
 				backgroundColor: dataset.type === "line" ? dataset.borderColor : dataset.backgroundColor
