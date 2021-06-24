@@ -78,9 +78,11 @@ const data = {
 
 function ProfitAndLoss() {
 	return (
-		<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
+		<div className="widget-content">
+		  <FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
 			<ProfitAndLossChart/>
-		</FakeLoadingComponent>
+		  </FakeLoadingComponent>
+		</div>
 	);
 }
 
