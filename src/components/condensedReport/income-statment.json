@@ -11,7 +11,6 @@
     {"label": "GROSS PROFIT", "isSum": true},
     {"label": "Operating expenses"},
     {"label": "Costs for employees"},
-    {"label": "Items affecting comparability"},
     {"label": "Financial income"},
     {"label": "Financial costs"},
     {"label": "PROFIT BEFORE TAX", "isSum": true},
@@ -46,10 +45,6 @@
     [
       0,
       2668518
-    ],
-    [
-      0,
-      -595104
     ],
     [
       0,
