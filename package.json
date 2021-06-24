@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "lint": "npx eslint  --ext .jsx --ext .js src",
     "start": "rescripts start",
-    "storybook": "start-storybook -p 6006 -s public",
+    "storybook": "NODE_ENV=development start-storybook -p 6006 -s public",
     "test": "rescripts test",
     "test-coverage": "rescripts test --coverage"
   },
