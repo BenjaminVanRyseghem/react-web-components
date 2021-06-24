@@ -1,2 +1,1 @@
-export * from "./components/chartJSExample/chartJSExample";
-export * from "./components/reactCounter/reactCounter";
+export * from "./widgets/profitAndLoss/profitAndLoss";
