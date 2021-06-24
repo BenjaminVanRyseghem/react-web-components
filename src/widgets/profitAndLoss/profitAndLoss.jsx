@@ -1,3 +1,4 @@
+import { black, green, grey, lightOrange, orange } from "helpers/colors";
 import annualTrend from "./annual-trend.json";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
 import LoadingChart from "components/loadingChart/loadingChart";
@@ -25,8 +26,8 @@ const data = {
 			label: "Loss",
 			data: annualTrend.profitTrend,
 			borderColor: "#F00",
-			hoverBackgroundColor: "#FED009",
-			backgroundColor: "#EA8F00",
+			hoverBackgroundColor: lightOrange,
+			backgroundColor: orange,
 			order: 2,
 			yAxisID: "currency-axis",
 			legendOrder: 0
@@ -34,7 +35,7 @@ const data = {
 		{
 			label: "YTD Profit",
 			data: annualTrend.accumulatedProfitTrend,
-			borderColor: "#85BC20",
+			borderColor: green,
 			backgroundColor: "#eee",
 			type: "line",
 			order: 0,
@@ -49,8 +50,8 @@ const data = {
 			label: "Income",
 			data: annualTrend.incomeTrend,
 			borderColor: "#F00",
-			hoverBackgroundColor: "#888888",
-			backgroundColor: "#474747",
+			hoverBackgroundColor: grey,
+			backgroundColor: black,
 			order: 1,
 			yAxisID: "currency-axis",
 			legendOrder: 2,
@@ -59,7 +60,7 @@ const data = {
 		{
 			label: "YTD Income",
 			data: annualTrend.accumulatedIncomeTrend,
-			borderColor: "#474747",
+			borderColor: black,
 			backgroundColor: "#eee",
 			type: "line",
 			order: 3,
