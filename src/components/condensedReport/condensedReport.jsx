@@ -18,7 +18,6 @@ const rowStyle = (isSum = false) => ({
 
 const CondensedReport = ({ columns = [], rows = [], cells = [] }) => (
     <>
-      <h2>Income statement for July 2021</h2>
       <table className="wk-table wk-table-small">
         <thead>
           <tr>

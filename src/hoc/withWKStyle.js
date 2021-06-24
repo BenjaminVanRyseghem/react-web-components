@@ -34,9 +34,18 @@ export default function withWKStyle(Component) {
 				overflow: hidden;
 			}
 
+			.widget-content.expanded {
+				display: flex;
+				gap: 10px;
+			}
+
+			.widget-content.expanded > * {
+				flex: 1 1 50%;
+			}
+
 			.widget-toolbar + .widget-content {
 				height: 254px;
-			`}</style>
+			}`}</style>
 
 		  <Component/>
 		</>

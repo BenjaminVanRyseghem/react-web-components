@@ -1,0 +1,75 @@
+{
+  "columns": [
+    "Oct 2009",
+    "YTD Oct 2009"
+  ],
+  "rows": [
+    {"label": "Net sales"},
+    {"label": "Other operating income"},
+    {"label": "INCOME", "isSum": true},
+    {"label": "Purchase of goods and equipment"},
+    {"label": "GROSS PROFIT", "isSum": true},
+    {"label": "Operating expenses"},
+    {"label": "Costs for employees"},
+    {"label": "Items affecting comparability"},
+    {"label": "Financial income"},
+    {"label": "Financial costs"},
+    {"label": "PROFIT BEFORE TAX", "isSum": true},
+    {"label": "Taxes"},
+    {"label": "RESULT", "isSum": true}
+  ],
+  "cells": [
+    [
+      0,
+      25408607
+    ],
+    [
+      0,
+      188766
+    ],
+    [
+      0,
+      25597374
+    ],
+    [
+      0,
+      19378322
+    ],
+    [
+      0,
+      6219052
+    ],
+    [
+      0,
+      1409254
+    ],
+    [
+      0,
+      2668518
+    ],
+    [
+      0,
+      -595104
+    ],
+    [
+      0,
+      18571
+    ],
+    [
+      0,
+      22679
+    ],
+    [
+      0,
+      9742969
+    ],
+    [
+      0,
+      330
+    ],
+    [
+      0,
+      9742639
+    ]
+  ]
+}
