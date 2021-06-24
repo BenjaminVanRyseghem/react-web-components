@@ -1,6 +1,6 @@
 [
 	{
-		"title": "Report for October 2009",
+		"title": "October 2009",
 		"period": {
 			"start": "2009-10-01T00:00:00",
 			"end": "2009-10-31T23:59:59",
@@ -35,7 +35,7 @@
 		"id": "1270f9ef5c7f3fa64b5c7d1879dd6152"
 	},
 	{
-		"title": "Report for May 2009",
+		"title": "May 2009",
 		"period": {
 			"start": "2009-05-01T00:00:00",
 			"end": "2009-05-31T23:59:59",
@@ -66,75 +66,6 @@
 			]
 		},
 		"author": "Damien",
-		"isNew": true,
 		"id": "7d5ac4df8feb957d0b6a1b2e6958c7c2"
-	},
-	{
-		"title": "Report for April 2009",
-		"period": {
-			"start": "2009-05-01T00:00:00",
-			"end": "2009-05-31T23:59:59",
-			"id": null
-		},
-		"periodType": "Month",
-		"periodIndex": 5,
-		"eventLog": {
-			"events": [
-				{
-					"timestamp": "2021-06-24T17:57:50Z",
-					"type": "Create",
-					"author": {
-						"userName": "cassou",
-						"name": "Damien",
-						"avatarData": null
-					}
-				},
-				{
-					"timestamp": "2021-06-24T17:58:18Z",
-					"type": "Publish",
-					"author": {
-						"userName": "cassou",
-						"name": "Damien",
-						"avatarData": null
-					}
-				}
-			]
-		},
-		"author": "Damien",
-		"id": "7d5ac4df8feb957d0b1a1b2e6958c7c2"
-	},
-	{
-		"title": "Report for March 2009",
-		"period": {
-			"start": "2009-10-01T00:00:00",
-			"end": "2009-10-31T23:59:59",
-			"id": null
-		},
-		"periodType": "Month",
-		"periodIndex": 10,
-		"eventLog": {
-			"events": [
-				{
-					"timestamp": "2020-10-22T17:20:00Z",
-					"type": "Create",
-					"author": {
-						"userName": "cassou",
-						"name": "Damien",
-						"avatarData": null
-					}
-				},
-				{
-					"timestamp": "2021-06-24T17:57:36Z",
-					"type": "Publish",
-					"author": {
-						"userName": "cassou",
-						"name": "Damien",
-						"avatarData": null
-					}
-				}
-			]
-		},
-		"author": "Damien",
-		"id": "1270f9ef5c7f3fa61b5c7a1879dd6152"
 	}
 ]
