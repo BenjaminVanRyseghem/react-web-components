@@ -14,12 +14,14 @@ export default class FakeLoadingComponent extends React.Component {
 	}
 
 	render() {
+		let { data, delay, children, ...others } = this.props;
+
 		return (
 			<LoadingComponent promise={new Promise((resolve) => {
 				setTimeout(() => {
-					resolve(this.props.data);
-				}, this.props.delay);
-			})}>{this.props.children}</LoadingComponent>
+					resolve(data);
+				}, delay);
+			})} {...others}>{children}</LoadingComponent>
 		);
 	}
 }

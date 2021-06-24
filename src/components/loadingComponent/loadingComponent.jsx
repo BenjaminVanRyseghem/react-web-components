@@ -7,11 +7,14 @@ function Loader() {
 
 export default class LoadingComponent extends React.Component {
 	static defaultProps = {
-		as: "data"
+		as: "data",
+		loader: <Loader/>
 	};
 
 	static propTypes = {
+		as: PropTypes.string,
 		children: PropTypes.node.isRequired,
+		loader: PropTypes.node,
 		promise: PropTypes.object.isRequired
 	};
 
@@ -24,9 +27,7 @@ export default class LoadingComponent extends React.Component {
 	}
 
 	renderLoading() {
-		return (
-			<Loader/>
-		);
+		return this.props.loader;
 	}
 
 	renderEmpty() {
@@ -36,7 +37,7 @@ export default class LoadingComponent extends React.Component {
 	}
 
 	render() {
-		if (!this.state.data === undefined) {
+		if (this.state.data === undefined) {
 			return this.renderLoading();
 		}
 
@@ -46,7 +47,7 @@ export default class LoadingComponent extends React.Component {
 
 		return (
 			<div className="loadingComponent">
-				{React.cloneElement(this.props.children[0], { data: this.state.data })}
+				{React.cloneElement(this.props.children, { [this.props.as]: this.state.data })}
 			</div>
 		);
 	}
