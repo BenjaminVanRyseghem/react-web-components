@@ -27,18 +27,12 @@ export default function profitAndLossLegend({
 					}
 				`}</style>
 		<div className="wk-button-group-right" style={buttonGroupStyle}>
-		  {datasets.map((dataset, index) => {
-			if (isSmall && index > 1) {
-				return null;
-			}
-
-			return renderLegendItem({
-				dataset,
-				index,
-				onToggleDataset,
-				includeShowMore
-			});
-		})}
+		  {!isSmall && datasets.map((dataset, index) => renderLegendItem({
+			dataset,
+			index,
+			onToggleDataset,
+			includeShowMore
+		}))}
 			{includeShowMore && renderMoreButton({ onTriggerExpandView })}
 		</div>
 	</>;
@@ -69,7 +63,7 @@ function renderMoreButton({ onTriggerExpandView }) {
 			type="button"
 			onClick={onTriggerExpandView}
 		>
-			More<span aria-hidden="true" className="wk-icon-arrow-right"/>
+			Show more<span aria-hidden="true" className="wk-icon-arrow-right"/>
 		</button>
 	);
 }
