@@ -11,6 +11,13 @@ export default function registerComponent(reactComponent) {
 	let name = reactComponent.nodeName;
 	let componentWithStyles = withWKStyle(reactComponent);
 
+	// Only for storybook, in webcomponents, it gets overridden line 30;
+	reactComponent.triggerExpandView = () => {
+		if (componentWithStyles.triggerExpandView) {
+			componentWithStyles.triggerExpandView();
+		}
+	};
+
 	if (!name) {
 		throw new Error("Missing nodeName");
 	}
@@ -41,11 +48,5 @@ export default function registerComponent(reactComponent) {
 
 	customElements.define(name, WithCustomEvent);
 
-	// Only for storybook, in webcomponents, it gets overridden line 30;
-	reactComponent.triggerExpandView = () => {
-		if (componentWithStyles.triggerExpandView) {
-			componentWithStyles.triggerExpandView();
-		}
-	};
 	return componentWithStyles;
 }
