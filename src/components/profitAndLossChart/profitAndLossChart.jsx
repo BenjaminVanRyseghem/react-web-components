@@ -8,10 +8,13 @@ import React from "react";
 export default class ProfitAndLossChart extends React.Component {
 	static nodeName = "finsit-profit-and-loss";
 
-	static defaultProps = {};
+	static defaultProps = {
+		small: false
+	};
 
 	static propTypes = {
-		chartData: PropTypes.object.isRequired
+		chartData: PropTypes.object.isRequired,
+		small: PropTypes.bool
 	};
 
 	state = {};
@@ -24,11 +27,33 @@ export default class ProfitAndLossChart extends React.Component {
 		return {
 			type: "bar",
 			data: this.props.chartData,
+			plugins: [
+				{
+					beforeDraw(chart) {
+						if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
+							let ctx = chart.canvas.getContext("2d");
+							let { chartArea } = chart;
+
+							ctx.save();
+							ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
+							ctx.fillRect(
+								chartArea.left,
+								chartArea.top,
+								chartArea.right - chartArea.left,
+								chartArea.bottom - chartArea.top);
+							ctx.restore();
+						}
+					}
+				}
+			],
 			options: {
+				chartArea: {
+					backgroundColor: "#eee"
+				},
 				animation: {
 					duration: 350
 				},
-				responsive: true,
+				responsive: false,
 				plugins: {
 					tooltip: {
 						callbacks: {
@@ -57,7 +82,7 @@ export default class ProfitAndLossChart extends React.Component {
 							unit: "month"
 						},
 						grid: {
-							color: "#FF0000"
+							color: "#FFF"
 						}
 					},
 					"currency-axis": {
@@ -81,8 +106,12 @@ export default class ProfitAndLossChart extends React.Component {
 
 	render() {
 		return (
-			<div className="chartExample" style={{ height: "1000px" }}>
-			<ChartComponent {...this.buildConfig()}/>
+			<div className="chartExample">
+				<ChartComponent
+					height={this.props.small ? 257 : 294}
+					width={this.props.small ? 257 : 294}
+					{...this.buildConfig()}
+				/>
 			</div>
 		);
 	}
