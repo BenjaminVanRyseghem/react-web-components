@@ -24,8 +24,8 @@ export default function registerComponent(reactComponent) {
 	const expandView = Symbol("expandView");
 
 	class WithCustomEvent extends WebComponent {
-		constructor() {
-			super(...arguments);
+		constructor(...args) {
+			super(...args);
 
 			reactComponent.triggerExpandView = () => this[expandView]();
 		}
@@ -40,5 +40,12 @@ export default function registerComponent(reactComponent) {
 	}
 
 	customElements.define(name, WithCustomEvent);
+
+	// Only for storybook, in webcomponents, it gets overriden line 30;
+	reactComponent.triggerExpandView = () => {
+		if (componentWithStyles.triggerExpandView) {
+			componentWithStyles.triggerExpandView();
+		}
+	};
 	return componentWithStyles;
 }

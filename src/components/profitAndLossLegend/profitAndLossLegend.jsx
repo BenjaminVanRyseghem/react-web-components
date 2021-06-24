@@ -13,7 +13,7 @@ const buttonStyle = (includeShowMore) => ({
 	flex: `0 1 ${includeShowMore ? 20 : 25}%`
 });
 
-export default function profitAndLossLegend({
+export default function ProfitAndLossLegend({
 	datasets,
 	onToggleDataset,
 	onTriggerExpandView,

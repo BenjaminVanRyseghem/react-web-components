@@ -1,8 +1,8 @@
 {
   "haveFiscalYearChanged": false,
   "author": {
-    "userName": "cassou",
-    "name": "Damien",
+    "userName": "jojo",
+    "name": "Johan Degerfeldt",
     "avatarData": null
   },
   "fiscalYear": {
@@ -7228,7 +7228,7 @@
   },
   "title": "Report for May 2009",
   "subtitle": "AB BΣrkassen",
-  "comment": "<p>who won the widgethon??<br></p>",
+  "comment": "<p>Hi Claire,</p><p>Here is your monthly period report for the business. The <em>Balance Sheet</em> and <em>Profit & Loss</em> are attached as PDFs. The profit can be seen on a month by month basis in the graph below. You can click on the graph elements below to graph to change the view.</p><p>Please contact me if you have any questions or comments.</p></br><p>PS: <a target=_blank href=\"https://finsit.net\">Who won the widgethon</a>?</p>",
   "periodString": "Month-5-2009",
   "attachments": [
     {

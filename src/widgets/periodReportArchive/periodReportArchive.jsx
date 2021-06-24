@@ -8,7 +8,7 @@ import summaries from "./periodReportSummary.json";
 function PeriodReportArchive() {
 	return (
 		<FakeLoadingComponent as="summaries" data={summaries} loader={<LoadingCard/>}>
-		  <PeriodReportCardList/>
+			<PeriodReportCardList onExpandView={() => PeriodReportArchive.triggerExpandView()}/>
 		</FakeLoadingComponent>
 	);
 }

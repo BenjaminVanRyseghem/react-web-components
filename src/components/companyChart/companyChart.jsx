@@ -8,7 +8,7 @@ import React from "react";
 
 loadChartLabelsPlugin(Chart);
 
-export default class ProfitAndLossChart extends React.Component {
+export default class CompanyChart extends React.Component {
 	static defaultProps = {};
 
 	static propTypes = {

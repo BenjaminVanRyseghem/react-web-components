@@ -1,4 +1,3 @@
-// eslint-disable-next-line filenames/match-exported,filenames/match-regex
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -6,6 +5,7 @@ export default class PeriodReportCard extends React.Component {
 	static defaultProps = {};
 
 	static propTypes = {
+		onExpandView: PropTypes.func.isRequired,
 		summary: PropTypes.object.isRequired
 	};
 
@@ -15,11 +15,11 @@ export default class PeriodReportCard extends React.Component {
 		let { summary } = this.props;
 
 		return (
-			<article className="wk-card-wrapper">
+			<article className="wk-card-wrapper" onClick={this.props.onExpandView}>
 				<div className="wk-card wk-card-tile">
-					<a className="wk-card-body" href={`https://web.foretagsplatsen.se/Accounting2/Company/a-damien-U-1204101330#!/period-report?id=${summary.id}`}>
+					<div className="wk-card-body">
 						<h3 className="wk-card-title"> {summary.title} </h3>
-					</a>
+					</div>
 					<input
 						className="wk-card-select-checkbox"
 						id={`card-${summary.id}-select`}
@@ -31,7 +31,7 @@ export default class PeriodReportCard extends React.Component {
 						aria-label="Select card"
 						className="wk-card-select-label"
 						htmlFor={`card-${summary.id}-select`}
-					></label>
+					/>
 				</div>
 			</article>
 		);

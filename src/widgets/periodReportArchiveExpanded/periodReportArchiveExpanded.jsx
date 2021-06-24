@@ -1,12 +1,10 @@
 import { black, green, grey, lightOrange, orange } from "helpers/colors";
-import { cells, columns, rows } from "./income-statement.json";
-import annualTrend from "./annual-trend.json";
-import CondensedReport from "components/condensedReport/condensedReport";
+import CommentCard from "components/commentCard/commentCard";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
-import LoadingChart from "components/loadingChart/loadingChart";
-import LoadingTable from "components/loadingTable/loadingTable";
+import periodReportData from "./periodReport.json";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
 import ProfitAndLossLegend from "components/profitAndLossLegend/profitAndLossLegend";
+import PropTypes from "prop-types";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
 
@@ -23,13 +21,12 @@ const dates = [
 	new Date(2020, 9, 1)
 ];
 
-const data = {
+const buildConfig = (annualTrend) => ({
 	labels: dates,
 	datasets: [
 		{
 			label: "Loss",
 			data: annualTrend.profitTrend,
-			borderColor: "#F00",
 			hoverBackgroundColor: lightOrange,
 			backgroundColor: orange,
 			order: 2,
@@ -53,7 +50,6 @@ const data = {
 		{
 			label: "Income",
 			data: annualTrend.incomeTrend,
-			borderColor: "#F00",
 			hoverBackgroundColor: grey,
 			backgroundColor: black,
 			order: 1,
@@ -78,57 +74,52 @@ const data = {
 
 		}
 	]
-};
+});
 
-class ProfitAndLoss extends React.Component {
+class PeriodReportArchiveExpanded extends React.Component {
+	static propTypes = {
+		data: PropTypes.object.isRequired
+	}
+
 	toggleDataset(dataset, index, { target }) {
 		this.ref.toggleDataset(index);
 		target.classList.toggle("inactive");
 	}
 
+	renderInner({ data }) {
+		let chartData = buildConfig(data.annualTrend);
+
+		return (
+			<div className="widget-content expanded">
+				<div>
+					<CommentCard author={data.author} comment={data.comment} reportId={data.id}/>
+				</div>
+				<div>
+					<ProfitAndLossLegend
+						datasets={chartData.datasets}
+						includeShowMore={false}
+						isSmall={false}
+						onToggleDataset={this.toggleDataset.bind(this)}
+					/>
+					<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
+				</div>
+			</div>
+		);
+	}
+
 	render() {
 		return (
-			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-				{({ chartData }) => (
-					<>
-						<ProfitAndLossLegend
-							datasets={data.datasets}
-							includeShowMore={false}
-							isSmall={false}
-							onToggleDataset={this.toggleDataset.bind(this)}
-							onTriggerExpandView={ProfitAndLoss.triggerExpandView}
-						/>
+			<div className="periodReportArchiveExpanded">
+				<h2>{periodReportData.title}</h2>
 
-						<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
-					</>
-				)}
-
-			</FakeLoadingComponent>
+				<FakeLoadingComponent data={periodReportData}>
+					{this.renderInner.bind(this)}
+				</FakeLoadingComponent>
+			</div>
 		);
 	}
 }
 
-function CondensedIncomeStatement() {
-	return <FakeLoadingComponent as="tableData" data={{}} loader={<LoadingTable/>}>
-		<CondensedReport cells={cells} columns={columns} rows={rows}/>
-	</FakeLoadingComponent>;
-}
+PeriodReportArchiveExpanded.nodeName = "finsit-period-report-archive-expanded";
 
-function ProfitAndLossExpanded() {
-	return (
-		<div className="widget-content expanded">
-			<div>
-				<h3>Overview chart</h3>
-				<ProfitAndLoss/>
-			</div>
-			<div>
-				<h3>Condensed P&L</h3>
-				<CondensedIncomeStatement/>
-			</div>
-		</div>
-	);
-}
-
-ProfitAndLossExpanded.nodeName = "finsit-profit-and-loss-expanded";
-
-export default registerComponent(ProfitAndLossExpanded);
+export default registerComponent(PeriodReportArchiveExpanded);
