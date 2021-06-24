@@ -3,9 +3,7 @@ import React from "react";
 
 export default function loadingChart() {
 	return (
-<wk-skeleton background-color="#dadada" background-opacity="1" foreground-color="#bfbfbf" foreground-opacity="1" gradient-ratio="1" height="320" interval="0.5" is-animated="" speed="1.2s" template="graph" title="Loading..." unique-id="i1qdqs938vcz" width="320">
-    <render-target>
-        <svg preserveAspectRatio aria-labelledby="i1qdqs938vcz-aria" height="100%" role="img" style={{ border: "1px solid rgb(191, 191, 191)" }} viewBox="0 0 540 378" width="100%">
+        <svg preserveAspectRatio aria-labelledby="i1qdqs938vcz-aria" height="254" role="img" style={{ border: "1px solid rgb(191, 191, 191)" }} viewBox="0 0 540 378" width="100%">
             <polygon fill="#bfbfbf" fill-rule="evenodd" points="109.91 242.6 167.91 237 258.78 146.71 345.45 185.5 508 80 508 346 32 346 109.91 242.6">
             </polygon>
             <title id="i1qdqs938vcz-aria">Loading...
@@ -35,8 +33,5 @@ export default function loadingChart() {
                 </linearGradient>
             </defs>
         </svg>
-    </render-target>
-</wk-skeleton>
-
 	);
 }
