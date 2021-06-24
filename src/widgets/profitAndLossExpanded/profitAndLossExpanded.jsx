@@ -92,6 +92,7 @@ class ProfitAndLoss extends React.Component {
 			  <ProfitAndLossLegend
 				datasets={data.datasets}
 				includeShowMore={false}
+				isSmall={false}
 				onToggleDataset={this.toggleDataset.bind(this)}
 				onTriggerExpandView={ProfitAndLoss.triggerExpandView}
 			  />
