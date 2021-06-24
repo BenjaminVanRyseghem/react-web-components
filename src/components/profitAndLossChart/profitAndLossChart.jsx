@@ -112,13 +112,7 @@ export default class ProfitAndLossChart extends React.Component {
 				height: 294,
 				width: "100%"
 			}}>
-				<ChartComponent
-
-					/* height={this.props.small ? 257 : 294} */
-
-					/* width={this.props.small ? 257 : 294} */
-					{...this.buildConfig()}
-				/>
+				<ChartComponent {...this.buildConfig()} />
 			</div>
 		);
 	}
