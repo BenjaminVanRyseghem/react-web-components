@@ -40,7 +40,8 @@ export default class ProfitAndLossChart extends React.Component {
 								chartArea.left,
 								chartArea.top,
 								chartArea.right - chartArea.left,
-								chartArea.bottom - chartArea.top);
+								chartArea.bottom - chartArea.top
+);
 							ctx.restore();
 						}
 					}
@@ -53,7 +54,8 @@ export default class ProfitAndLossChart extends React.Component {
 				animation: {
 					duration: 350
 				},
-				responsive: false,
+				responsive: true,
+				maintainAspectRatio: false,
 				plugins: {
 					tooltip: {
 						callbacks: {
@@ -106,10 +108,15 @@ export default class ProfitAndLossChart extends React.Component {
 
 	render() {
 		return (
-			<div className="chartExample">
+			<div className="chartExample" style={{
+				height: 294,
+				width: "100%"
+			}}>
 				<ChartComponent
-					height={this.props.small ? 257 : 294}
-					width={this.props.small ? 257 : 294}
+
+					/* height={this.props.small ? 257 : 294} */
+
+					/* width={this.props.small ? 257 : 294} */
 					{...this.buildConfig()}
 				/>
 			</div>
