@@ -47,7 +47,7 @@ function renderLegendItem({ dataset, index, onToggleDataset, includeShowMore }) 
 				...buttonStyle(includeShowMore),
 				backgroundColor: dataset.type === "line" ? dataset.borderColor : dataset.backgroundColor
 			}}
-			onClick={() => onToggleDataset(dataset, index)}
+		  	onClick={(event) => onToggleDataset(dataset, index, event)}
 		>
 		  {dataset.label}
 		</button>
