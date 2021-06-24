@@ -46,10 +46,6 @@ export default class ProfitAndLossChart extends React.Component {
 								return dataset1.legendOrder < dataset2.legendOrder ? -1 : 1;
 							}
 						}
-					},
-					title: {
-						display: true,
-						text: "Chart.js Combined Line/Bar Chart"
 					}
 				},
 				scales: {

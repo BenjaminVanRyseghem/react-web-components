@@ -25,10 +25,6 @@ export default class ProfitAndLossChart extends React.Component {
 				plugins: {
 					legend: {
 						position: "bottom"
-					},
-					title: {
-						display: true,
-						text: "Chart.js Combined Line/Bar Chart"
 					}
 				}
 			}
