@@ -1,1 +1,1 @@
-export * from "./widgets/profitAndLoss/profitAndLoss";
+import "./widgets/profitAndLoss/profitAndLoss";

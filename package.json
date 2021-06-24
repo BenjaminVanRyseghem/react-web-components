@@ -22,7 +22,7 @@
   "scripts": {
     "build": "rescripts build",
     "build-storybook": "build-storybook -s public",
-    "debug": "serve dist",
+    "debug": "serve build",
     "eject": "react-scripts eject",
     "lint": "npx eslint  --ext .jsx --ext .js src",
     "start": "rescripts start",
