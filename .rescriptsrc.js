@@ -14,11 +14,11 @@ module.exports = [
 			webpack.plugins = webpack.plugins.filter((plugin) => plugin.key !== "ESLintWebpackPlugin")
 			webpack.resolve.modules = webpackConfig.resolve.modules;
 			webpack.resolve.extensions = webpackConfig.resolve.extensions;
-			webpack.optimization.minimize = false;
 			webpack.optimization.splitChunks = webpackConfig.optimization.splitChunks;
 			webpack.optimization.runtimeChunk = webpackConfig.optimization.runtimeChunk;
 			webpack.output.filename = webpackConfig.output.filename;
 			webpack.resolve.alias = Object.assign({}, webpack.resolve.alias, webpackConfig.resolve.alias);
+			// webpack.optimization.minimize = false; // uncomment to debug builds
 
 			webpack.module.rules[1].oneOf.forEach((each) => {
 				if (each.test && each.test.toString().match("png")) {
