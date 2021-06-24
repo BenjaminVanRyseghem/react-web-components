@@ -1,4 +1,4 @@
-import { blue, lightOrange } from "helpers/colors";
+import { blue, orange } from "helpers/colors";
 import { closingBalance } from "./companyTransitionBalance.json";
 import CompanyChart from "components/companyChart/companyChart";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
@@ -13,7 +13,7 @@ const data = {
 				Math.abs(closingBalance.totalLiability),
 				Math.abs(closingBalance.totalAssets)
 			],
-			backgroundColor: [blue, lightOrange]
+			backgroundColor: [blue, orange]
 		}
 	],
 	labels: ["Liabilities", "Assets"]
