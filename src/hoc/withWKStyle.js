@@ -10,6 +10,7 @@ const wkCssComponentsPath = "https://cdn.wolterskluwer.io/wk/components/1.x.x/al
 const wkCssTypographyPath = "https://cdn.wolterskluwer.io/wk/fundamentals/1.x.x/typography.min.css";
 const wkCssFiraSansPath = "https://cdn.wolterskluwer.io/wk/fundamentals/1.x.x/typography/fira-sans/all.min.css";
 const wkCssFiraRegularPath = "https://cdn.wolterskluwer.io/wk/fundamentals/1.x.x/typography/fira-sans/regular.min.css";
+const wkCssIconsPath = "https://cdn.wolterskluwer.io/wk/fundamentals/1.x.x/icons.min.css";
 
 export default function withWKStyle(Component) {
 	let fn = () => (
@@ -20,6 +21,7 @@ export default function withWKStyle(Component) {
 		  <link href={wkCssTypographyPath} rel="stylesheet"/>
 		  <link href={wkCssFiraSansPath} rel="stylesheet"/>
 		  <link href={wkCssFiraRegularPath} rel="stylesheet"/>
+		  <link href={wkCssIconsPath} rel="stylesheet"/>
 
 		  <style>{`
 			.widget-toolbar {
