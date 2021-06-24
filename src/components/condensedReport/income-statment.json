@@ -13,7 +13,6 @@
     {"label": "Costs for employees"},
     {"label": "Financial income"},
     {"label": "Financial costs"},
-    {"label": "PROFIT BEFORE TAX", "isSum": true},
     {"label": "Taxes"},
     {"label": "RESULT", "isSum": true}
   ],
@@ -53,10 +52,6 @@
     [
       0,
       22679
-    ],
-    [
-      0,
-      9742969
     ],
     [
       0,
