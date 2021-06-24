@@ -19,6 +19,19 @@ export default function registerComponent(reactComponent) {
 		return componentWithStyles;
 	}
 
-	customElements.define(name, reactToWebComponent(componentWithStyles, React, ReactDOM, { shadow: true }));
+	const WebComponent = reactToWebComponent(componentWithStyles, React, ReactDOM, { shadow: true });
+
+	class WithCustomEvent extends WebComponent {
+		constructor() {
+			super(...arguments);
+
+			let expandViewEvent = new CustomEvent("expandedviewopened", {
+				detail: "expanded view triggered from sample web component"
+			});
+			this.dispatchEvent(expandViewEvent);
+		}
+	}
+
+	customElements.define(name, WithCustomEvent);
 	return componentWithStyles;
 }
