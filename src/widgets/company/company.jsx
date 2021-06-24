@@ -21,9 +21,11 @@ const data = {
 
 function Company() {
 	return (
+		<div className="widget-content">
 		<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
 		  <CompanyChart/>
 		</FakeLoadingComponent>
+		</div>
 	);
 }
 
