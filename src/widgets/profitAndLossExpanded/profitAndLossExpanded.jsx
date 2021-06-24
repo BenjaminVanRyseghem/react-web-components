@@ -114,11 +114,11 @@ function ProfitAndLossExpanded() {
 	return (
 		<div className="widget-content expanded">
 		  <div>
-			<h2>Overview chart</h2>
+			<h3>Overview chart</h3>
 			<ProfitAndLoss/>
 		  </div>
 		  <div>
-			<h2>Condensed P&L</h2>
+			<h3>Condensed P&L</h3>
 			<CondensedIncomeStatement/>
 		  </div>
 		</div>
