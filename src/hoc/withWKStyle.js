@@ -14,16 +14,17 @@ const wkCssFiraRegularPath = "https://cdn.wolterskluwer.io/wk/fundamentals/1.x.x
 export default function withWKStyle(Component) {
 	let fn = () => (
 		<>
-		  <link href={wkCssFundamentalsPath} rel="stylesheet"/>
-		  <link href={wkCssFundamentalsPath} rel="stylesheet" />
-		  <link href={wkCssComponentsPath} rel="stylesheet" />
-		  <link href={wkCssTypographyPath} rel="stylesheet"/>
-		  <link href={wkCssFiraSansPath} rel="stylesheet"/>
-		  <link href={wkCssFiraRegularPath} rel="stylesheet"/>
-		  <Component/>
+			<link href={wkCssFundamentalsPath} rel="stylesheet"/>
+			<link href={wkCssFundamentalsPath} rel="stylesheet"/>
+			<link href={wkCssComponentsPath} rel="stylesheet"/>
+			<link href={wkCssTypographyPath} rel="stylesheet"/>
+			<link href={wkCssFiraSansPath} rel="stylesheet"/>
+			<link href={wkCssFiraRegularPath} rel="stylesheet"/>
+			<Component/>
 		</>
 	);
 
 	fn.nodeName = Component.nodeName;
+	fn.propTypes = Component.propTypes || {};
 	return fn;
 }
