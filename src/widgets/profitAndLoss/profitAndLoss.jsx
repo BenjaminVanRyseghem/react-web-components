@@ -85,4 +85,4 @@ function ProfitAndLoss() {
 
 ProfitAndLoss.nodeName = "finsit-profit-and-loss";
 
-registerComponent(ProfitAndLoss);
+export default registerComponent(ProfitAndLoss);
