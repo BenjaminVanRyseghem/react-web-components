@@ -130,7 +130,7 @@ export default class ProfitAndLossChart extends React.Component {
 	render() {
 		return (
 			<div className="chartExample" style={{
-				height: this.props.small ? 254 : 294,
+				height: this.props.small ? 254 : 430,
 				width: "100%"
 			}}>
 				<ChartComponent

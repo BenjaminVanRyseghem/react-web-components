@@ -97,7 +97,7 @@ class ProfitAndLoss extends React.Component {
 			  />
 
 			  <FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-				<ProfitAndLossChart ref={(ref) => (this.ref = ref)} small/>
+				<ProfitAndLossChart ref={(ref) => (this.ref = ref)} />
 			  </FakeLoadingComponent>
 			</div>
 		);
