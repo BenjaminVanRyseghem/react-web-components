@@ -21,14 +21,16 @@ export default function registerComponent(reactComponent) {
 
 	const WebComponent = reactToWebComponent(componentWithStyles, React, ReactDOM, { shadow: true });
 
+	const expandView = Symbol("expandView");
+
 	class WithCustomEvent extends WebComponent {
 		constructor() {
 			super(...arguments);
 
-			reactComponent.triggerExpandView = () => this.expandView();
+			reactComponent.triggerExpandView = () => this[expandView]();
 		}
 
-		expandView() {
+		[expandView]() {
 			let expandViewEvent = new CustomEvent("expandedviewopened", {
 				detail: "expanded view triggered from sample web component"
 			});
