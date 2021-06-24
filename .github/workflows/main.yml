@@ -34,4 +34,4 @@ jobs:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: ./build
       - name: Update widget registry
-        run: ./updateRegistry.sh
+        run: ./.github/workflows/updateRegistry.sh
