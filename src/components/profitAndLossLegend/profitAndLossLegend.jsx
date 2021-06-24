@@ -20,21 +20,21 @@ export default function profitAndLossLegend({
 	includeShowMore = true
 }) {
 	return <>
-			 <style>{`
+		<style>{`
 					.wk-button.inactive {
 						background-color: #ccc !important;
 					}
 				`}</style>
-			 <div className="wk-button-group-right" style={buttonGroupStyle}>
-			   {datasets.map((dataset, index) => renderLegendItem({
+		<div className="wk-button-group-right" style={buttonGroupStyle}>
+			{datasets.map((dataset, index) => renderLegendItem({
 				dataset,
 				index,
 				onToggleDataset,
 				includeShowMore
 			}))}
-			   {includeShowMore && renderMoreButton({ onTriggerExpandView })}
-			 </div>
-		   </>;
+			{includeShowMore && renderMoreButton({ onTriggerExpandView })}
+		</div>
+	</>;
 }
 
 function renderLegendItem({ dataset, index, onToggleDataset, includeShowMore }) {
@@ -47,9 +47,9 @@ function renderLegendItem({ dataset, index, onToggleDataset, includeShowMore }) 
 				...buttonStyle(includeShowMore),
 				backgroundColor: dataset.type === "line" ? dataset.borderColor : dataset.backgroundColor
 			}}
-		  	onClick={(event) => onToggleDataset(dataset, index, event)}
+			onClick={(event) => onToggleDataset(dataset, index, event)}
 		>
-		  {dataset.label}
+			{dataset.label}
 		</button>
 	);
 }
@@ -62,7 +62,7 @@ function renderMoreButton({ onTriggerExpandView }) {
 			type="button"
 			onClick={onTriggerExpandView}
 		>
-		  Show more<span aria-hidden="true" className="wk-icon-arrow-right"></span>
+			Show more<span aria-hidden="true" className="wk-icon-arrow-right"/>
 		</button>
 	);
 }
