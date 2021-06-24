@@ -120,6 +120,6 @@ class PeriodReportArchiveExpanded extends React.Component {
 	}
 }
 
-PeriodReportArchiveExpanded.nodeName = "finsit-period-report-archive-expanded";
+PeriodReportArchiveExpanded.nodeName = "finsit-period-reports-expanded";
 
 export default registerComponent(PeriodReportArchiveExpanded);
