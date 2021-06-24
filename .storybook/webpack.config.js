@@ -6,9 +6,15 @@ module.exports = async ({ config }) => {
 		"node_modules"
 	];
 
-	config.plugins = config.plugins.filter(
-		p => String(p.resourceRegExp) !== "/core-js/"
-	);
+	config.plugins = config.plugins.filter((p) => String(p.resourceRegExp) !== "/core-js/");
+
+	config.watchOptions = {
+		/*
+		 * Ignore files whose name starts with '.#' because they are
+		 * temporary lock files:
+		 */
+		ignored: [new RegExp("/\\.#")]
+	};
 
 	return config;
 };
