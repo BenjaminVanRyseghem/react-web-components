@@ -17,7 +17,7 @@ export default class PeriodReportCard extends React.Component {
 		return (
 			<article className="wk-card-wrapper">
 				<div className="wk-card wk-card-tile">
-					<a className="wk-card-body" href={`https://dev-damien.foretagsplatsen.se/Accounting2/Company/a-damien-U-1204101330#!/period-report?id=${summary.id}`}>
+					<a className="wk-card-body" href={`https://web.foretagsplatsen.se/Accounting2/Company/a-damien-U-1204101330#!/period-report?id=${summary.id}`}>
 						<h3 className="wk-card-title"> {summary.title} </h3>
 					</a>
 					<input
