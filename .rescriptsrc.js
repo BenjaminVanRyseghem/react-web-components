@@ -21,6 +21,9 @@ module.exports = [
 			webpack.resolve.alias = Object.assign({}, webpack.resolve.alias, webpackConfig.resolve.alias);
 
 			webpack.module.rules[1].oneOf.forEach((each) => {
+				if (each.test && each.test.toString().match("png")) {
+					each.options.limit = true;
+				}
 				if (each.test && each.test.toString().match("css")) {
 					each.use = ["to-string-loader", "css-loader"];
 				}
