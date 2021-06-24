@@ -93,7 +93,25 @@ export default class ProfitAndLossChart extends React.Component {
 					"currency-axis": {
 						type: "linear",
 						position: "left",
-						display: false
+						display: true,
+						ticks: {
+							display: false,
+							showLabelBackdrop: false
+						},
+						grid: {
+							tickLength: 0,
+							drawBorder: false,
+							color(context) {
+								if (context.tick.value !== 0) {
+									return false;
+								}
+
+								return "#fff";
+							},
+							padding: 0,
+							backdropPadding: 0,
+							z: -1 // eslint-disable-line id-length
+						}
 					},
 					"percentage-axis": {
 						type: "linear",
