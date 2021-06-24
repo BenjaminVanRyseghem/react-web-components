@@ -24,7 +24,7 @@ export default class ProfitAndLossChart extends React.Component {
 				responsive: true,
 				plugins: {
 					legend: {
-						position: "bottom"
+						display: false
 					}
 				}
 			}
