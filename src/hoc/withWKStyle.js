@@ -47,7 +47,11 @@ export default function withWKStyle(Component) {
 
 			.widget-toolbar + .widget-content {
 				height: 254px;
-			}`}</style>
+			}
+
+			.wk-button {white-space: nowrap;}
+
+          `}</style>
 
 		  <Component/>
 		</>

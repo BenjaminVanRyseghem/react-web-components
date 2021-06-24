@@ -16,7 +16,20 @@
 		overflow: hidden;
 	}
 
+	.widget-content.expanded {
+		display: flex;
+		gap: 10px;
+		height: 470px;
+		overflow: initial;
+	}
+
+	.widget-content.expanded > * {
+		flex: 1 1 50%;
+	}
+
 	.widget-toolbar + .widget-content {
 		height: 254px;
 	}
+
+	.wk-button {white-space: nowrap;}
 </style>
