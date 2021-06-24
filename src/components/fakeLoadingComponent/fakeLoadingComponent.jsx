@@ -4,7 +4,7 @@ import React from "react";
 
 export default class FakeLoadingComponent extends React.Component {
 	static defaultProps = {
-		delay: 2000
+		delay: process.env.NODE_ENV === "development" ? 0 : 2000 // eslint-disable-line no-process-env
 	};
 
 	static propTypes = {
@@ -18,6 +18,11 @@ export default class FakeLoadingComponent extends React.Component {
 
 		return (
 			<LoadingComponent promise={new Promise((resolve) => {
+				if (!delay) {
+					resolve(data);
+					return;
+				}
+
 				setTimeout(() => {
 					resolve(data);
 				}, delay);
