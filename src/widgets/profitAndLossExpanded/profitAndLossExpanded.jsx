@@ -89,16 +89,16 @@ class ProfitAndLoss extends React.Component {
 	render() {
 		return (
 			<div>
-				<ProfitAndLossLegend
-					datasets={data.datasets}
-					includeShowMore={false}
-					onToggleDataset={this.toggleDataset.bind(this)}
-					onTriggerExpandView={ProfitAndLoss.triggerExpandView}
-				/>
+			  <ProfitAndLossLegend
+				datasets={data.datasets}
+				includeShowMore={false}
+				onToggleDataset={this.toggleDataset.bind(this)}
+				onTriggerExpandView={ProfitAndLoss.triggerExpandView}
+			  />
 
-			  	<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-					<ProfitAndLossChart ref={(ref) => (this.ref = ref)} small/>
-			  	</FakeLoadingComponent>
+			  <FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
+				<ProfitAndLossChart ref={(ref) => (this.ref = ref)} small/>
+			  </FakeLoadingComponent>
 			</div>
 		);
 	}
@@ -106,15 +106,21 @@ class ProfitAndLoss extends React.Component {
 
 function CondensedIncomeStatement() {
 	return <FakeLoadingComponent as="tableData" data={{}} loader={<LoadingTable/>}>
-			 <CondensedReport cells={cells} columns={columns} rows={rows}/>
-		   </FakeLoadingComponent>;
+				  <CondensedReport cells={cells} columns={columns} rows={rows}/>
+				</FakeLoadingComponent>;
 }
 
 function ProfitAndLossExpanded() {
 	return (
 		<div className="widget-content expanded">
-		  <ProfitAndLoss/>
-		  <CondensedIncomeStatement/>
+		  <div>
+			<h2>Overview chart</h2>
+			<ProfitAndLoss/>
+		  </div>
+		  <div>
+			<h2>Condensed P&L</h2>
+			<CondensedIncomeStatement/>
+		  </div>
 		</div>
 	);
 }

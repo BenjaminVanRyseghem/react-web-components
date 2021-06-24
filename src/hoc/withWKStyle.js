@@ -51,6 +51,10 @@ export default function withWKStyle(Component) {
 
 			.wk-button {white-space: nowrap;}
 
+			h2 {
+				margin-bottom: 1rem;
+			}
+
           `}</style>
 
 		  <Component/>
