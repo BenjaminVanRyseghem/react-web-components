@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
 
-export default function loadingChart() {
+export default function LoadingChart() {
 	return (
         <svg preserveAspectRatio aria-labelledby="i1qdqs938vcz-aria" height="254" role="img" style={{ border: "1px solid rgb(191, 191, 191)" }} viewBox="0 0 540 378" width="100%">
             <polygon fill="#bfbfbf" fill-rule="evenodd" points="109.91 242.6 167.91 237 258.78 146.71 345.45 185.5 508 80 508 346 32 346 109.91 242.6">

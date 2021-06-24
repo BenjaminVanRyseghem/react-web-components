@@ -1,6 +1,8 @@
 import { black, green, grey, lightOrange, orange } from "helpers/colors";
 import CommentCard from "components/commentCard/commentCard";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
+import LoadingCard from "components/loadingCard/loadingCard";
+import LoadingChart from "components/loadingChart/loadingChart";
 import periodReportData from "./periodReport.json";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
 import ProfitAndLossLegend from "components/profitAndLossLegend/profitAndLossLegend";
@@ -86,35 +88,45 @@ class PeriodReportArchiveExpanded extends React.Component {
 		target.classList.toggle("inactive");
 	}
 
-	renderInner({ data }) {
-		let chartData = buildConfig(data.annualTrend);
-
-		return (
-			<div className="widget-content expanded">
-				<div>
-					<CommentCard author={data.author} comment={data.comment} reportId={data.id}/>
-				</div>
-				<div>
-					<ProfitAndLossLegend
-						datasets={chartData.datasets}
-						includeShowMore={false}
-						isSmall={false}
-						onToggleDataset={this.toggleDataset.bind(this)}
-					/>
-					<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
-				</div>
-			</div>
-		);
-	}
-
 	render() {
 		return (
 			<div className="periodReportArchiveExpanded">
 				<h2>{periodReportData.title}</h2>
+				<div className="widget-content expanded">
+					<div>
 
-				<FakeLoadingComponent data={periodReportData}>
-					{this.renderInner.bind(this)}
-				</FakeLoadingComponent>
+						<FakeLoadingComponent
+							data={periodReportData}
+							loader={<LoadingCard/>}
+						>
+							{({ data }) => <CommentCard
+								author={data.author}
+								comment={data.comment}
+								reportId={data.id}
+							/>}
+						</FakeLoadingComponent>
+					</div>
+					<div>
+						<FakeLoadingComponent
+							data={periodReportData}
+							loader={<LoadingChart/>}
+						>
+							{({ data }) => {
+								let chartData = buildConfig(data.annualTrend);
+
+								return <>
+									<ProfitAndLossLegend
+										datasets={chartData.datasets}
+										includeShowMore={false}
+										isSmall={false}
+										onToggleDataset={this.toggleDataset.bind(this)}
+									/>
+									<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
+								</>;
+							}}
+						</FakeLoadingComponent>
+					</div>
+				</div>
 			</div>
 		);
 	}
