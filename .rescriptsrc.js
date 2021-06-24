@@ -19,9 +19,12 @@ module.exports = [
 			webpack.output.filename = webpackConfig.output.filename;
 			webpack.resolve.alias = Object.assign({}, webpack.resolve.alias, webpackConfig.resolve.alias);
 
-			webpack.module.rules[1].oneOf.find((each) => {
+			webpack.module.rules[1].oneOf.forEach((each) => {
 				if (each.test && each.test.toString().match("css")) {
 					each.use = ["to-string-loader", "css-loader"];
+				}
+				if (each.test && each.test.toString().match("scss")) {
+					each.use.push("sass-loader");
 				}
 			});
 			return webpack;

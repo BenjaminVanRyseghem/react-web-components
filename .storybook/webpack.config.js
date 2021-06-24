@@ -8,6 +8,12 @@ module.exports = async ({ config }) => {
 
 	config.plugins = config.plugins.filter((p) => String(p.resourceRegExp) !== "/core-js/");
 
+	config.module.rules[5].oneOf.forEach((each) => {
+		if (each.test && each.test.toString().match("css")) {
+			each.use = ["to-string-loader", "css-loader"];
+		}
+	});
+
 	config.watchOptions = {
 		/*
 		 * Ignore files whose name starts with '.#' because they are
