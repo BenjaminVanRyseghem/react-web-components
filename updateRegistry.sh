@@ -8,7 +8,7 @@ echo "------------------ Update P&L widget --------------------"
 
 curl -X 'PUT' \
   'https://widgetgames.azurewebsites.net/applications/448c2171-abaa-4608-ab89-2e3047e6b5c3/widgets/71c6161f-d93e-44bd-a41e-33d34c633904' \
-  --dump-header - --fail-with-body --silent --show-error \
+  --dump-header - --fail --silent --show-error \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -35,7 +35,7 @@ echo "------------------ Update Company widget --------------------"
 
 curl -X 'PUT' \
   'https://widgetgames.azurewebsites.net/applications/448c2171-abaa-4608-ab89-2e3047e6b5c3/widgets/d13c6175-756d-4426-be56-e2fd0098567d' \
-  --dump-header - --fail-with-body --silent --show-error \
+  --dump-header - --fail --silent --show-error \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -62,7 +62,7 @@ echo "------------------ Update Period Reports widget --------------------"
 
 curl -X 'PUT' \
   'https://widgetgames.azurewebsites.net/applications/448c2171-abaa-4608-ab89-2e3047e6b5c3/widgets/ce5d42e5-4478-4bdb-8fe3-9e317157271f' \
-  --dump-header - --fail-with-body --silent --show-error \
+  --dump-header - --fail --silent --show-error \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
