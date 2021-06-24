@@ -1,8 +1,12 @@
 // eslint-disable-next-line filenames/match-exported,filenames/match-regex
 import "chartjs-adapter-date-fns";
-import ChartComponent from "react-chartjs-2";
+import ChartComponent, { Chart } from "react-chartjs-2";
+import loadChartLabelsPlugin from "helpers/chartjs-plugin-labels";
+import numbro from "numbro";
 import PropTypes from "prop-types";
 import React from "react";
+
+loadChartLabelsPlugin(Chart);
 
 export default class ProfitAndLossChart extends React.Component {
 	static defaultProps = {};
@@ -26,6 +30,12 @@ export default class ProfitAndLossChart extends React.Component {
 				plugins: {
 					legend: {
 						display: false
+					},
+					labels: {
+						render: ({ value }) => numbro(value).formatCurrency(),
+						fontColor: "#fff",
+						fontSize: 18,
+						fontStyle: "bold"
 					}
 				}
 			}
