@@ -1,5 +1,6 @@
 /* eslint-disable filenames/match-exported,filenames/match-regex */
 import React from "react";
+import style from "./style.css";
 
 /**
  * Inject WK style inside the shadow DOM
@@ -23,39 +24,7 @@ export default function withWKStyle(Component) {
 		  <link href={wkCssFiraRegularPath} rel="stylesheet"/>
 		  <link href={wkCssIconsPath} rel="stylesheet"/>
 
-		  <style>{`
-			.widget-toolbar {
-				height: 32px;
-				margin-bottom: 8px;
-			}
-
-			.widget-content {
-				height: 294px;
-				overflow: hidden;
-			}
-
-			.widget-content.expanded {
-				display: flex;
-				gap: 10px;
-				height: 450px;
-				overflow: initial;
-			}
-
-			.widget-content.expanded > * {
-				flex: 1 1 50%;
-			}
-
-			.widget-toolbar + .widget-content {
-				height: 254px;
-			}
-
-			.wk-button {white-space: nowrap;}
-
-			h3 {
-				margin-bottom: .8rem;
-			}
-
-          `}</style>
+		  <style>{style}</style>
 
 		  <Component/>
 		</>
