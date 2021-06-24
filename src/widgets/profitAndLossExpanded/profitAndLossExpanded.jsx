@@ -6,6 +6,7 @@ import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingCom
 import LoadingChart from "components/loadingChart/loadingChart";
 import LoadingTable from "components/loadingTable/loadingTable";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
+import ProfitAndLossLegend from "components/profitAndLossLegend/profitAndLossLegend";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
 
@@ -79,12 +80,28 @@ const data = {
 	]
 };
 
-function ProfitAndLoss() {
-	return (
-		<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-		  <ProfitAndLossChart/>
-		</FakeLoadingComponent>
-	);
+class ProfitAndLoss extends React.Component {
+	toggleDataset(dataset, index, { target }) {
+		this.ref.toggleDataset(index);
+		target.classList.toggle("inactive");
+	}
+
+	render() {
+		return (
+			<div>
+				<ProfitAndLossLegend
+					datasets={data.datasets}
+					includeShowMore={false}
+					onToggleDataset={this.toggleDataset.bind(this)}
+					onTriggerExpandView={ProfitAndLoss.triggerExpandView}
+				/>
+
+			  	<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
+					<ProfitAndLossChart ref={(ref) => (this.ref = ref)} small/>
+			  	</FakeLoadingComponent>
+			</div>
+		);
+	}
 }
 
 function CondensedIncomeStatement() {

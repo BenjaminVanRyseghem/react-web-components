@@ -3,6 +3,7 @@ import annualTrend from "./annual-trend.json";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
 import LoadingChart from "components/loadingChart/loadingChart";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
+import ProfitAndLossLegend from "components/profitAndLossLegend/profitAndLossLegend";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
 
@@ -74,72 +75,27 @@ const data = {
 	]
 };
 
-const buttonGroupStyle = {
-	marginRight: 4,
-	marginLeft: 4,
-	display: "flex"
-};
-
-const buttonStyle = {
-	marginRight: 4,
-	flex: "0 1 20%"
-};
-
 class ProfitAndLoss extends React.Component {
 	toggleDataset(dataset, index, { target }) {
 		this.ref.toggleDataset(index);
 		target.classList.toggle("inactive");
 	}
 
-	renderLegendItem(dataset, index) {
-		let isDisabled = dataset.hidden;
-		return (
-			<button
-				key={index}
-				className={`wk-button ${isDisabled ? "inactive" : ""}`}
-				style={{
-					...buttonStyle,
-					backgroundColor: dataset.type === "line" ? dataset.borderColor : dataset.backgroundColor
-				}}
-				onClick={this.toggleDataset.bind(this, dataset, index)}
-			>
-				{dataset.label}
-			</button>
-		);
-	}
-
-	renderMoreButton() {
-		return (
-			<button
-				className="wk-button wk-button-text wk-button-icon-right"
-				style={buttonStyle}
-				type="button"
-				onClick={() => ProfitAndLoss.triggerExpandView()}
-			>
-				Show more<span aria-hidden="true" className="wk-icon-arrow-right"></span>
-			</button>
-		);
-	}
-
 	render() {
 		return (
 			<>
-				<style>{`
-					.wk-button.inactive {
-						background-color: #ccc !important;
-					}
-				`}</style>
-				<div className="widget-toolbar">
-					<div className="wk-button-group-right" style={buttonGroupStyle}>
-						{data.datasets.map(this.renderLegendItem.bind(this))}
-						{this.renderMoreButton()}
-					</div>
-				</div>
-				<div className="widget-content">
-					<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-						<ProfitAndLossChart ref={(ref) => (this.ref = ref)} small/>
-					</FakeLoadingComponent>
-				</div>
+			  <div className="widget-toolbar">
+				<ProfitAndLossLegend
+					datasets={data.datasets}
+					onToggleDataset={this.toggleDataset.bind(this)}
+					onTriggerExpandView={ProfitAndLoss.triggerExpandView}
+				/>
+			  </div>
+			  <div className="widget-content">
+				<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
+				  <ProfitAndLossChart ref={(ref) => (this.ref = ref)} small/>
+				</FakeLoadingComponent>
+			  </div>
 			</>
 		);
 	}
