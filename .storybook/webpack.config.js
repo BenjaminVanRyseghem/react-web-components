@@ -12,6 +12,9 @@ module.exports = async ({ config }) => {
 		if (each.test && each.test.toString().match("css")) {
 			each.use = ["to-string-loader", "css-loader"];
 		}
+		if (each.test && each.test.toString().match("scss")) {
+			each.use.push("sass-loader");
+		}
 	});
 
 	config.watchOptions = {
