@@ -73,6 +73,9 @@ export default class ProfitAndLossChart extends React.Component {
 					},
 					legend: {
 						display: false
+					},
+					labels: {
+						render: () => ""
 					}
 				},
 				scales: {
