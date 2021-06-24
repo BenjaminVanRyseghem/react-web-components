@@ -4,7 +4,6 @@ import LoadingChart from "components/loadingChart/loadingChart";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
-import withWKStyle from "hoc/withWKStyle";
 
 const dates = [
 	new Date(2020, 0, 1),
@@ -86,4 +85,4 @@ function ProfitAndLoss() {
 
 ProfitAndLoss.nodeName = "finsit-profit-and-loss";
 
-export default registerComponent(withWKStyle(ProfitAndLoss));
+export default registerComponent(ProfitAndLoss);
