@@ -76,9 +76,19 @@ const data = {
 	]
 };
 
+function expandView() {
+	let component = document.querySelector(ProfitAndLoss.nodeName);
+	let event = new CustomEvent("expandedviewopened", {
+		detail: "Expanded view triggered"
+	});
+	component.dispatchEvent(event);
+}
+
 function ProfitAndLoss() {
 	return (
 		<div className="widget-content">
+		  <button className="wk-button" onClick={expandView}>Expand view</button>
+
 			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
 				<ProfitAndLossChart/>
 			</FakeLoadingComponent>
