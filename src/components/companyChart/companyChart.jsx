@@ -21,6 +21,7 @@ export default class ProfitAndLossChart extends React.Component {
 				animation: {
 					duration: 350
 				},
+				maintainAspectRatio: false,
 				responsive: true,
 				plugins: {
 					legend: {
@@ -33,8 +34,11 @@ export default class ProfitAndLossChart extends React.Component {
 
 	render() {
 		return (
-			<div className="chartExample">
-			<ChartComponent {...this.buildConfig()}/>
+			<div className="chartExample" style={{
+				height: 294,
+				width: "100%"
+			}}>
+				<ChartComponent {...this.buildConfig()}/>
 			</div>
 		);
 	}
