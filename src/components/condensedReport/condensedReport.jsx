@@ -18,6 +18,7 @@ const rowStyle = (isSum = false) => ({
 
 const CondensedReport = ({ columns = [], rows = [], cells = [] }) => (
     <>
+	  <wk-skeleton template="table-filled"></wk-skeleton>
       <table className="wk-table wk-table-small">
         <thead>
           <tr>

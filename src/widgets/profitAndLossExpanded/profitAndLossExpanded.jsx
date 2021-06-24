@@ -4,6 +4,7 @@ import annualTrend from "./annual-trend.json";
 import CondensedReport from "components/condensedReport/condensedReport";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
 import LoadingChart from "components/loadingChart/loadingChart";
+import LoadingTable from "components/loadingTable/loadingTable";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
@@ -87,7 +88,9 @@ function ProfitAndLoss() {
 }
 
 function CondensedIncomeStatement() {
-	return <CondensedReport cells={cells} columns={columns} rows={rows}/>;
+	return <FakeLoadingComponent as="tableData" data={{}} loader={<LoadingTable/>}>
+			 <CondensedReport cells={cells} columns={columns} rows={rows}/>
+		   </FakeLoadingComponent>;
 }
 
 function ProfitAndLossExpanded() {
