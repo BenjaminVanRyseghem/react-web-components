@@ -31,6 +31,10 @@ module.exports = {
 				query: {
 					name: "static/assets/[name].[hash:8].[ext]"
 				}
+			},
+			{
+				test: /\.css$/i,
+				use: ["to-string-loader"]
 			}
 		]
 	},

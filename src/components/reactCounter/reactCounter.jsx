@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import registerComponent from "helpers/registerComponent";
+import style from "./reactCounter.css";
 import withWKStyle from "hoc/withWKStyle";
 
+debugger;
 function ReactCounter() {
 	let [value, setValue] = useState(0);
 
