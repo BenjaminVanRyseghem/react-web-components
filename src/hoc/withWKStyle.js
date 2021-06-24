@@ -25,6 +25,6 @@ export default function withWKStyle(Component) {
 	);
 
 	fn.nodeName = Component.nodeName;
-	fn.propTypes = Component.propTypes || {};
+	eval("fn.propTypes = Component.propTypes || {};"); // eslint-disable-line no-eval
 	return fn;
 }
