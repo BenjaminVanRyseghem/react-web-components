@@ -94,7 +94,6 @@ class ProfitAndLoss extends React.Component {
 						<ChartLegend
 							datasets={data.datasets}
 							onToggleDataset={this.toggleDataset.bind(this)}
-							onTriggerExpandView={ProfitAndLoss.triggerExpandView}
 						/>
 
 						<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>

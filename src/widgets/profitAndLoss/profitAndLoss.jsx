@@ -1,11 +1,11 @@
 import { black, green, grey, lightOrange, orange } from "helpers/colors";
 import annualTrend from "./annual-trend.json";
-import ChartLegend from "components/chartLegend/chartLegend";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
 import LoadingChart from "components/loadingChart/loadingChart";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
+import ShowMoreButton from "components/showMoreButton/showMoreButton";
 
 const dates = [
 	new Date(2020, 0, 1),
@@ -85,13 +85,9 @@ class ProfitAndLoss extends React.Component {
 		return (
 			<>
 			  <div className="widget-toolbar">
-				<ChartLegend
-					includeShowMore
-					isSmall
-					datasets={data.datasets}
-					onToggleDataset={this.toggleDataset.bind(this)}
-					onTriggerExpandView={ProfitAndLoss.triggerExpandView}
-				/>
+				<div className="wk-button-group-right">
+					<ShowMoreButton onTriggerExpandView={ProfitAndLoss.triggerExpandView} />
+				</div>
 			  </div>
 			  <div className="widget-content">
 				<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
