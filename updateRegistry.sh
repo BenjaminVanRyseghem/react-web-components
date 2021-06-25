@@ -83,3 +83,30 @@ curl -X 'PUT' \
   },
   "widgetCustomAction": null
 }'
+
+echo
+echo "------------------ Update KPI widget --------------------"
+
+curl -X 'PUT' \
+  'https://widgetgames.azurewebsites.net/applications/448c2171-abaa-4608-ab89-2e3047e6b5c3/widgets/f9a95c7f-0ba4-4766-ab75-7303f033a5ca' \
+  --dump-header - --fail --silent --show-error \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "f9a95c7f-0ba4-4766-ab75-7303f033a5ca",
+  "name": "KPI",
+  "description": "A widget that shows the current value of a KPI with its min and max values over the fiscal year.",
+  "icon": "wk-icon-calculator-operations",
+  "customActionLabel": null,
+  "widget": {
+    "tagName": "finsit-keyfigure",
+    "modulePath": null,
+    "es5Path": "https://foretagsplatsen.github.io/widgethon/bundle.js"
+  },
+  "widgetExpanded": {
+    "tagName": "finsit-keyfigure-expanded",
+    "modulePath": null,
+    "es5Path": "https://foretagsplatsen.github.io/widgethon/bundle.js"
+  },
+  "widgetCustomAction": null
+}'
