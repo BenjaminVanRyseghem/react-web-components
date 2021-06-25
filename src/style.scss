@@ -193,6 +193,15 @@ a.wk-button {
 	margin-top: 7.5px;
 }
 
+.keyFigureExpanded {
+	.chartExample {
+		canvas {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
 .clickable {
 	cursor: pointer;
 	transition: box-shadow 300ms cubic-bezier(.4, 0, .2, 1);

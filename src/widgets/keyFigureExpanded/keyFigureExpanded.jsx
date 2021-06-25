@@ -54,7 +54,7 @@ class KeyFigureExpanded extends React.Component {
 
 	render() {
 		return (
-			<div className="periodReportArchiveExpanded">
+			<div className="keyFigureExpanded">
 				<h2>{kpi.name} overview</h2>
 				<div className="widget-content expanded">
 					<div>
