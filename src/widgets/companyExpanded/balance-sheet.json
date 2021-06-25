@@ -1,0 +1,99 @@
+{
+	"columns": [
+		"OB Oct 2009",
+		"Variance",
+		"CB Oct 2009"
+	],
+	"rows": [
+		{
+			"label": "Fixed assets"
+		},
+		{
+			"label": "Current assets"
+		},
+		{
+			"label": "TOTAL ASSETS",
+			"isSum": true
+		},
+		{
+			"label": "Equity Capital"
+		},
+		{
+			"label": "Retained earnings"
+		},
+		{
+			"label": "Net profit"
+		},
+		{
+			"label": "TOTAL EQUITY",
+			"isSum": true
+		},
+		{
+			"label": "Untaxed reserves"
+		},
+		{
+			"label": "Liabilities"
+		},
+		{
+			"label": "EQUITY AND LIABILITIES",
+			"isSum": true
+		}
+	],
+	"cells": [
+		[
+			279,
+			0,
+			279
+		],
+		[
+			8945,
+			0,
+			8945
+		],
+		[
+			9224,
+			0,
+			9224
+		],
+		[
+			2619,
+			0,
+			2619
+		],
+		[
+			0,
+			0,
+			0
+		],
+		[
+			-1460,
+			0,
+			-1460
+		],
+		[
+			4079,
+			0,
+			4079
+		],
+		[
+			1962,
+			0,
+			1962
+		],
+		[
+			3183,
+			0,
+			3183
+		],
+		[
+			3183,
+			0,
+			3183
+		],
+		[
+			9224,
+			0,
+			9224
+		]
+	]
+}
