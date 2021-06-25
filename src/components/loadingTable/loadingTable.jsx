@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
 
-export default function loadingTable() {
+export default function LoadingTable() {
 	return (
 		<svg aria-labelledby="i1qxvua7o513-aria" height="294" preserveAspectRatio="none" role="img" style={{ border: "1px solid rgb(218, 218, 218)" }} viewBox="0 0 540 294" width="540">
 		  <rect fill="#dadada" height="33" width="540" y="31">
