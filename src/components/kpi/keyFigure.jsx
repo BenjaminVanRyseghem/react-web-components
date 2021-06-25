@@ -18,7 +18,7 @@ export default function KeyFigure({ kpi, onClick }) {
 
 	return (
 		<section
-			className="wk-card-container wk-card-container-h-dividers kpi-card clickable"
+			className={`wk-card-container wk-card-container-h-dividers kpi-card ${onClick ? "clickable" : ""}`}
 			onClick={onClick}
 		>
 			<header className="wk-card-container-header kpi-value kpi-current">
@@ -43,5 +43,5 @@ export default function KeyFigure({ kpi, onClick }) {
 
 KeyFigure.propTypes = {
 	kpi: PropTypes.object.isRequired,
-	onClick: PropTypes.func.isRequired
+	onClick: PropTypes.func
 };
