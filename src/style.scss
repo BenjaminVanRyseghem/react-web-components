@@ -126,10 +126,11 @@ a.wk-button {
 	margin-top: 8px;
 	display: flex;
 	gap: .5rem;
-	justify-content: space-around;
+	justify-content: center;
 
 	.legend-entry {
 		flex: 0 0 50%;
+		max-width: 20ch;
 	}
 }
 
