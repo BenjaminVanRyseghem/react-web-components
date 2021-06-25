@@ -25,6 +25,9 @@
 			flex: 1 1 50%;
 		}
 
+		.legend {
+			margin-top: 16px;
+		}
 	}
 }
 
@@ -128,4 +131,15 @@ a.wk-button {
 	.legend-entry {
 		flex: 0 0 50%;
 	}
+}
+
+.chartExample {
+	canvas {
+		margin-top: -12px;
+		margin-bottom: 12px;
+	}
+}
+
+.widget-content.expanded .chartExample + .legend {
+	margin-top: 8px;
 }

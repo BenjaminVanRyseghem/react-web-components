@@ -91,12 +91,11 @@ class ProfitAndLoss extends React.Component {
 			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
 				{({ chartData }) => (
 					<>
+						<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
 						<ChartLegend
 							datasets={data.datasets}
 							onToggleDataset={this.toggleDataset.bind(this)}
 						/>
-
-						<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
 					</>
 				)}
 

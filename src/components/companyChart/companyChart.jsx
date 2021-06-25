@@ -63,7 +63,7 @@ export default class CompanyChart extends React.Component {
 	render() {
 		return (
 			<div className="companyChart" style={{
-				height: this.props.large ? 300 : 214,
+				height: this.props.large ? 316 : 214,
 				width: "100%"
 			}}>
 				<ChartComponent ref={(ref) => (this.ref = ref)} {...this.buildConfig()}/>

@@ -14,21 +14,6 @@ const buttonStyle = () => ({
 	flex: "0 1 25%"
 });
 
-export default function ChartLegend({
-	datasets,
-	onToggleDataset
-}) {
-	return <>
-		<div className="wk-button-group-right" style={buttonGroupStyle}>
-		  {datasets.map((dataset, index) => renderLegendItem({
-			dataset,
-			index,
-			onToggleDataset
-		}))}
-		</div>
-	</>;
-}
-
 function renderLegendItem({ dataset, index, onToggleDataset }) {
 	let isDisabled = dataset.hidden;
 	return (
@@ -44,4 +29,19 @@ function renderLegendItem({ dataset, index, onToggleDataset }) {
 			{dataset.label}
 		</button>
 	);
+}
+
+export default function ChartLegend({
+	datasets,
+	onToggleDataset
+}) {
+	return <>
+		<div className="wk-button-group-right legend" style={buttonGroupStyle}>
+			{datasets.map((dataset, index) => renderLegendItem({
+				dataset,
+				index,
+				onToggleDataset
+			}))}
+		</div>
+	</>;
 }
