@@ -30,6 +30,14 @@
 
 .wk-button {
 	white-space: nowrap;
+
+	&.inactive {
+		background-color: #ccc !important;
+	}
+
+	&.no-click {
+		cursor: default;
+	}
 }
 
 h2 {
@@ -83,7 +91,4 @@ a.wk-button {
 		right: 1rem;
 		top: 0.4rem;
 	}
-}
-
-.period-report-card-list {
 }

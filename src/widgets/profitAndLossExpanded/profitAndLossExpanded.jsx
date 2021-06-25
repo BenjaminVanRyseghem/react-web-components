@@ -1,12 +1,12 @@
 import { black, green, grey, lightOrange, orange } from "helpers/colors";
 import { cells, columns, rows } from "./income-statement.json";
 import annualTrend from "./annual-trend.json";
+import ChartLegend from "components/chartLegend/chartLegend";
 import CondensedReport from "components/condensedReport/condensedReport";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
 import LoadingChart from "components/loadingChart/loadingChart";
 import LoadingTable from "components/loadingTable/loadingTable";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
-import ProfitAndLossLegend from "components/profitAndLossLegend/profitAndLossLegend";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
 
@@ -91,10 +91,8 @@ class ProfitAndLoss extends React.Component {
 			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
 				{({ chartData }) => (
 					<>
-						<ProfitAndLossLegend
+						<ChartLegend
 							datasets={data.datasets}
-							includeShowMore={false}
-							isSmall={false}
 							onToggleDataset={this.toggleDataset.bind(this)}
 							onTriggerExpandView={ProfitAndLoss.triggerExpandView}
 						/>

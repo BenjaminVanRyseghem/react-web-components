@@ -1,11 +1,11 @@
 import { black, green, grey, lightOrange, orange } from "helpers/colors";
+import ChartLegend from "components/chartLegend/chartLegend";
 import CommentCard from "components/commentCard/commentCard";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
 import LoadingCard from "components/loadingCard/loadingCard";
 import LoadingChart from "components/loadingChart/loadingChart";
 import periodReportData from "./periodReport.json";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
-import ProfitAndLossLegend from "components/profitAndLossLegend/profitAndLossLegend";
 import PropTypes from "prop-types";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
@@ -115,10 +115,8 @@ class PeriodReportArchiveExpanded extends React.Component {
 								let chartData = buildConfig(data.annualTrend);
 
 								return <>
-									<ProfitAndLossLegend
+									<ChartLegend
 										datasets={chartData.datasets}
-										includeShowMore={false}
-										isSmall={false}
 										onToggleDataset={this.toggleDataset.bind(this)}
 									/>
 									<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>

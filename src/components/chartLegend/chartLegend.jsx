@@ -5,27 +5,22 @@ import React from "react";
 const buttonGroupStyle = {
 	marginRight: 4,
 	marginLeft: 4,
-	display: "flex"
+	display: "flex",
+	gap: 4
 };
 
 const buttonStyle = (includeShowMore) => ({
-	marginRight: 4,
 	flex: `0 1 ${includeShowMore ? 20 : 25}%`
 });
 
-export default function ProfitAndLossLegend({
+export default function ChartLegend({
 	datasets,
 	onToggleDataset,
 	onTriggerExpandView,
-	includeShowMore = true,
-	isSmall = true
+	includeShowMore = false,
+	isSmall = false
 }) {
 	return <>
-		<style>{`
-					.wk-button.inactive {
-						background-color: #ccc !important;
-					}
-				`}</style>
 		<div className="wk-button-group-right" style={buttonGroupStyle}>
 		  {!isSmall && datasets.map((dataset, index) => renderLegendItem({
 			dataset,
@@ -43,7 +38,7 @@ function renderLegendItem({ dataset, index, onToggleDataset, includeShowMore }) 
 	return (
 		<button
 			key={index}
-			className={`wk-button ${isDisabled ? "inactive" : ""}`}
+			className={`wk-button wk-button-small ${isDisabled ? "inactive" : ""}`}
 			style={{
 				...buttonStyle(includeShowMore),
 				backgroundColor: dataset.type === "line" ? dataset.borderColor : dataset.backgroundColor
@@ -58,7 +53,7 @@ function renderLegendItem({ dataset, index, onToggleDataset, includeShowMore }) 
 function renderMoreButton({ onTriggerExpandView }) {
 	return (
 		<button
-			className="wk-button wk-button-text wk-button-icon-right"
+			className="wk-button wk-button-small wk-button-text wk-button-icon-right"
 			style={buttonStyle(true)}
 			type="button"
 			onClick={onTriggerExpandView}

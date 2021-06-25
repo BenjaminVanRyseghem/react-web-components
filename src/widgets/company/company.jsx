@@ -19,14 +19,81 @@ const data = {
 	labels: ["Liabilities", "Assets"]
 };
 
-function Company() {
-	return (
-		<div className="widget-content">
-		<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-		  <CompanyChart/>
-		</FakeLoadingComponent>
-		</div>
-	);
+const buttonGroupStyle = {
+	marginRight: 4,
+	marginLeft: 4,
+	display: "flex",
+	gap: 4,
+	height: 32,
+	alignItems: "center"
+};
+
+const buttonStyle = (includeShowMore) => ({
+	flex: `0 1 ${includeShowMore ? 20 : 25}%`
+});
+
+function legendEntryStyle(backgroundColor) {
+	return {
+		color: "white",
+		backgroundColor
+	};
+}
+
+class Company extends React.Component {
+	toggleVisibility(index, { target }) {
+		this.ref.toggleDataset(index);
+		target.classList.toggle("inactive");
+	}
+
+	renderLegendEntry(label, index, chartData) {
+		let color = chartData.datasets[0].backgroundColor[index];
+		return (
+			<div
+				className="wk-button wk-button-small legend-entry"
+				style={legendEntryStyle(color)}
+				onClick={this.toggleVisibility.bind(this, index)}
+			>
+				{label}
+			</div>
+		);
+	}
+
+	renderMoreButton({ onTriggerExpandView }) {
+		return (
+			<button
+				className="wk-button wk-button-small wk-button-text wk-button-icon-right"
+				style={buttonStyle(true)}
+				type="button"
+				onClick={onTriggerExpandView}
+			>
+				More<span aria-hidden="true" className="wk-icon-arrow-right"/>
+			</button>
+		);
+	}
+
+	render() {
+		return (
+			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
+				{({ chartData }) => (
+					<>
+						<div className="widget-toolbar company-chart-legend">
+							<div className="wk-button-group-right" style={buttonGroupStyle}>
+								{chartData.labels.map((each, index) => this.renderLegendEntry(
+									each,
+									index,
+									chartData
+								))}
+								{this.renderMoreButton({ onTriggerExpandView: () => Company.triggerExpandView() })}
+							</div>
+						</div>
+						<div className="widget-content">
+							<CompanyChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
+						</div>
+					</>
+				)}
+			</FakeLoadingComponent>
+		);
+	}
 }
 
 Company.nodeName = "finsit-company";

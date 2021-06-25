@@ -1,9 +1,9 @@
 import { black, green, grey, lightOrange, orange } from "helpers/colors";
 import annualTrend from "./annual-trend.json";
+import ChartLegend from "components/chartLegend/chartLegend";
 import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
 import LoadingChart from "components/loadingChart/loadingChart";
 import ProfitAndLossChart from "components/profitAndLossChart/profitAndLossChart";
-import ProfitAndLossLegend from "components/profitAndLossLegend/profitAndLossLegend";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
 
@@ -85,7 +85,9 @@ class ProfitAndLoss extends React.Component {
 		return (
 			<>
 			  <div className="widget-toolbar">
-				<ProfitAndLossLegend
+				<ChartLegend
+					includeShowMore
+					isSmall
 					datasets={data.datasets}
 					onToggleDataset={this.toggleDataset.bind(this)}
 					onTriggerExpandView={ProfitAndLoss.triggerExpandView}
