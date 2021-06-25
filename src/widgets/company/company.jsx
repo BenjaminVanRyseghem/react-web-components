@@ -5,6 +5,7 @@ import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingCom
 import LoadingChart from "components/loadingChart/loadingChart";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
+import ShowMoreButton from "components/showMoreButton/showMoreButton";
 
 const data = {
 	datasets: [
@@ -54,18 +55,6 @@ class Company extends React.Component {
 		);
 	}
 
-	renderMoreButton({ onTriggerExpandView }) {
-		return (
-			<button
-				className="wk-button wk-button-small wk-button-text wk-button-icon-right"
-				type="button"
-				onClick={onTriggerExpandView}
-			>
-				More<span aria-hidden="true" className="wk-icon-arrow-right"/>
-			</button>
-		);
-	}
-
 	render() {
 		return (
 			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
@@ -78,7 +67,7 @@ class Company extends React.Component {
 									index,
 									chartData
 								))}
-								{this.renderMoreButton({ onTriggerExpandView: () => Company.triggerExpandView() })}
+								<ShowMoreButton onTriggerExpandView={() => Company.triggerExpandView()} />
 							</div>
 						</div>
 						<div className="widget-content">

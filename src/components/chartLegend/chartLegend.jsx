@@ -1,6 +1,7 @@
 // eslint-disable-next-line filenames/match-exported,filenames/match-regex
 import "chartjs-adapter-date-fns";
 import React from "react";
+import ShowMoreButton from "components/showMoreButton/showMoreButton";
 
 const buttonGroupStyle = {
 	marginRight: 4,
@@ -28,7 +29,7 @@ export default function ChartLegend({
 			onToggleDataset,
 			includeShowMore
 		}))}
-			{includeShowMore && renderMoreButton({ onTriggerExpandView })}
+			{includeShowMore && <ShowMoreButton onTriggerExpandView={onTriggerExpandView} />}
 		</div>
 	</>;
 }
@@ -46,19 +47,6 @@ function renderLegendItem({ dataset, index, onToggleDataset, includeShowMore }) 
 			onClick={(event) => onToggleDataset(dataset, index, event)}
 		>
 			{dataset.label}
-		</button>
-	);
-}
-
-function renderMoreButton({ onTriggerExpandView }) {
-	return (
-		<button
-			className="wk-button wk-button-small wk-button-text wk-button-icon-right"
-			style={buttonStyle(true)}
-			type="button"
-			onClick={onTriggerExpandView}
-		>
-			More<span aria-hidden="true" className="wk-icon-arrow-right"/>
 		</button>
 	);
 }
