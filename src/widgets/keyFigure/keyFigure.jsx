@@ -1,4 +1,6 @@
 import data from "components/kpi/kpi.json";
+import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingComponent";
+import LoadingCard from "components/loadingCard/loadingCard";
 import KeyFigureComponent from "components/kpi/keyFigure";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
@@ -74,7 +76,13 @@ class KeyFigure extends React.Component {
 					</div>
 				</div>
 				<div className="widget-content kpi-card-container">
-					<KeyFigureComponent kpi={this.state.selectedKPI} onClick={KeyFigure.triggerExpandView}/>
+					<FakeLoadingComponent
+						as="kpi"
+						data={this.state.selectedKPI}
+						loader={<LoadingCard/>}
+					>
+						<KeyFigureComponent onClick={KeyFigure.triggerExpandView}/>
+					</FakeLoadingComponent>
 				</div>
 			</>
 		);
