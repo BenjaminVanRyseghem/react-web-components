@@ -58,7 +58,7 @@ function renderMoreButton({ onTriggerExpandView }) {
 			type="button"
 			onClick={onTriggerExpandView}
 		>
-			Show more<span aria-hidden="true" className="wk-icon-arrow-right"/>
+			More<span aria-hidden="true" className="wk-icon-arrow-right"/>
 		</button>
 	);
 }

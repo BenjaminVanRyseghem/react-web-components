@@ -28,10 +28,6 @@ const buttonGroupStyle = {
 	alignItems: "center"
 };
 
-const buttonStyle = (includeShowMore) => ({
-	flex: `0 1 ${includeShowMore ? 20 : 25}%`
-});
-
 function legendEntryStyle(backgroundColor) {
 	return {
 		color: "white",
@@ -62,7 +58,6 @@ class Company extends React.Component {
 		return (
 			<button
 				className="wk-button wk-button-small wk-button-text wk-button-icon-right"
-				style={buttonStyle(true)}
 				type="button"
 				onClick={onTriggerExpandView}
 			>
