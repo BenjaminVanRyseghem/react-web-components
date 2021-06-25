@@ -1,10 +1,12 @@
-import KPI from "./kpi";
+import KeyFigure from "./keyFigure";
+import kpiData from "./kpi.json";
 import React from "react";
-import withWKStyle from "hoc/withWKStyle";
 
 export default {
-	component: KPI,
-	title: "Components/KPI"
+	component: KeyFigure,
+	title: "Components/KeyFigure"
 };
 
-export const shows = () => <KPI/>;
+export const shows = () => <div>
+	<KeyFigure kpi={kpiData}/>
+</div>;

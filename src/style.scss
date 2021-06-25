@@ -122,6 +122,30 @@ a.wk-button {
 
 .kpi-card {
 	text-align: center;
+
+	.kpi-value {
+		.title {
+			margin-right: 1ch;
+		}
+
+		.value {
+			margin-right: 1ch;
+		}
+
+		.period {
+			&:before {
+				content: "("
+			}
+
+			&:after {
+				content: ")"
+			}
+		}
+	}
+}
+
+.wk-text-muted-lighter {
+	color: #a3a3a3;
 }
 
 .legend {

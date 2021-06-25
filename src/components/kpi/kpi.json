@@ -18,7 +18,8 @@
 			"type": "KeyFigure",
 			"keyFigureId": "NetSales",
 			"value": 5658700.81,
-			"periodId": "Month-3-2009"
+			"periodId": "Month-3-2009",
+			"periodName": "Mar 2009"
 		},
 		{
 			"type": "KeyFigure",
@@ -42,7 +43,8 @@
 			"type": "KeyFigure",
 			"keyFigureId": "NetSales",
 			"value": 1521484.75,
-			"periodId": "Month-7-2009"
+			"periodId": "Month-7-2009",
+			"periodName": "Jul 2009"
 		},
 		{
 			"type": "KeyFigure",
@@ -55,7 +57,7 @@
 			"keyFigureId": "NetSales",
 			"value": 1830770.45,
 			"periodId": "Month-9-2009",
-			"periodName" : "Sept. 2009"
+			"periodName" : "Sep 2009"
 		}
 	]
 }
