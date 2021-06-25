@@ -34,7 +34,7 @@ export default class PeriodReportCard extends React.Component {
 		let { summary } = this.props;
 
 		return (
-			<div className="wk-card-wrapper" onClick={this.props.onExpandView}>
+			<div className="wk-card-wrapper report-card" onClick={this.props.onExpandView}>
 				<div className="wk-file wk-card wk-card-is-favorited  wk-card-small">
 					<a className="wk-card-body">
 						{this.props.isNew && <div className="wk-tag-blue">New</div>}
@@ -44,7 +44,7 @@ export default class PeriodReportCard extends React.Component {
 							{summary.title}
 							</span>
 						</h3>
-					<div className="wk-card-subtitle">From Johan Degerfeldt</div>
+						<div className="wk-card-subtitle">From Johan Degerfeldt</div>
 					</a>
 
 					<button
