@@ -5,6 +5,16 @@ import FakeLoadingComponent from "components/fakeLoadingComponent/fakeLoadingCom
 import LoadingChart from "components/loadingChart/loadingChart";
 import React from "react";
 import registerComponent from "helpers/registerComponent";
+import ShowMoreButton from "components/showMoreButton/showMoreButton";
+
+const buttonGroupStyle = {
+	marginRight: 4,
+	marginLeft: 4,
+	display: "flex",
+	gap: 4,
+	height: 32,
+	alignItems: "center"
+};
 
 const data = {
 	datasets: [
@@ -19,14 +29,19 @@ const data = {
 	labels: ["Liabilities", "Assets"]
 };
 
-class Company extends React.Component {
-	render() {
-		return (
+function Company() {
+	return (
+		<>
+			<div className="widget-toolbar company-chart-legend">
+				<div className="wk-button-group-right" style={buttonGroupStyle}>
+					<ShowMoreButton onTriggerExpandView={() => Company.triggerExpandView()}/>
+				</div>
+			</div>
 			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-				<CompanyChartWithLegend showMore triggerExpandView={() => Company.triggerExpandView()}/>
+				<CompanyChartWithLegend/>
 			</FakeLoadingComponent>
-		);
-	}
+		</>
+	);
 }
 
 Company.nodeName = "finsit-company";

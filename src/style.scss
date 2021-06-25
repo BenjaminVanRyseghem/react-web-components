@@ -116,3 +116,16 @@ a.wk-button {
 		top: 0.4rem;
 	}
 }
+
+.legend {
+	height: 32px;
+	overflow: hidden;
+	margin-top: 8px;
+	display: flex;
+	gap: .5rem;
+	justify-content: space-around;
+
+	.legend-entry {
+		flex: 0 0 50%;
+	}
+}

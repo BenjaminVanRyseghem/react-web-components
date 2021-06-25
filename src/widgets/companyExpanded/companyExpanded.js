@@ -28,7 +28,7 @@ function CompanyExpanded() {
 			<div>
 				<h3>Company chart</h3>
 				<FakeLoadingComponent as="chartData" data={chartData} loader={<LoadingChart/>}>
-					<CompanyChartWithLegend/>
+					<CompanyChartWithLegend large/>
 				</FakeLoadingComponent>
 			</div>
 			<div>

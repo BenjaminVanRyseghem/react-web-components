@@ -10,13 +10,14 @@ import React from "react";
 loadChartLabelsPlugin(Chart);
 
 export default class CompanyChart extends React.Component {
-	static defaultProps = {};
-
-	static propTypes = {
-		chartData: PropTypes.object.isRequired
+	static defaultProps = {
+		large: false
 	};
 
-	state = {};
+	static propTypes = {
+		chartData: PropTypes.object.isRequired,
+		large: PropTypes.bool
+	};
 
 	buildConfig() {
 		return {
@@ -39,7 +40,7 @@ export default class CompanyChart extends React.Component {
 					labels: {
 						render: ({ value }) => numbro(value).formatCurrency(),
 						fontColor: "#fff",
-						fontSize: 18,
+						fontSize: 16,
 						fontStyle: "bold"
 					}
 				}
@@ -62,7 +63,7 @@ export default class CompanyChart extends React.Component {
 	render() {
 		return (
 			<div className="companyChart" style={{
-				height: 254,
+				height: this.props.large ? 300 : 214,
 				width: "100%"
 			}}>
 				<ChartComponent ref={(ref) => (this.ref = ref)} {...this.buildConfig()}/>

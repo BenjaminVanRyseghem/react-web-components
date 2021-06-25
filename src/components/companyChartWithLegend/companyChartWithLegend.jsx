@@ -2,25 +2,15 @@ import CompanyChart from "components/companyChart/companyChart";
 import LegendEntry from "components/legendEntry/legendEntry";
 import PropTypes from "prop-types";
 import React from "react";
-import ShowMoreButton from "components/showMoreButton/showMoreButton";
-
-const buttonGroupStyle = {
-	marginRight: 4,
-	marginLeft: 4,
-	display: "flex",
-	gap: 4,
-	height: 32,
-	alignItems: "center"
-};
 
 export default class CompanyChartWithLegend extends React.Component {
 	static defaultProps = {
-		showMore: false
+		large: false
 	}
 
 	static propTypes = {
 		chartData: PropTypes.object.isRequired,
-		showMore: PropTypes.bool,
+		large: PropTypes.bool,
 		triggerExpandView: PropTypes.func.isRequired
 	}
 
@@ -30,24 +20,19 @@ export default class CompanyChartWithLegend extends React.Component {
 	}
 
 	render() {
-		let { chartData, triggerExpandView } = this.props;
+		let { chartData } = this.props;
 
 		return (
 			<>
-				<div className="widget-toolbar company-chart-legend">
-					<div className="wk-button-group-right" style={buttonGroupStyle}>
-						{chartData.labels.map((each, index) => <LegendEntry
-							key={index}
-							chartData={chartData}
-							index={index}
-							label={each}
-							toggleVisibility={this.toggleVisibility.bind(this)}
-						/>)}
-						{this.props.showMore && <ShowMoreButton onTriggerExpandView={triggerExpandView}/>}
-					</div>
-				</div>
-				<div className="widget-content">
-					<CompanyChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
+				<CompanyChart ref={(ref) => (this.ref = ref)} chartData={chartData} large={this.props.large}/>
+				<div className={`legend ${this.props.large ? "large" : ""}`}>
+					{chartData.labels.map((each, index) => <LegendEntry
+						key={index}
+						chartData={chartData}
+						index={index}
+						label={each}
+						toggleVisibility={this.toggleVisibility.bind(this)}
+					/>)}
 				</div>
 			</>
 		);
