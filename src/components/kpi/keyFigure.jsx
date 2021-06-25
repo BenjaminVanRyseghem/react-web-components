@@ -12,9 +12,9 @@ function formatDate(value) {
 }
 
 export default function KeyFigure({ kpi, onClick }) {
-	let current = kpi.values[8]; // eslint-disable-line prefer-destructuring
-	let min = kpi.values[6]; // eslint-disable-line prefer-destructuring
-	let max = kpi.values[2]; // eslint-disable-line prefer-destructuring
+	let current = kpi.values[kpi.current];
+	let min = kpi.values[kpi.min];
+	let max = kpi.values[kpi.max];
 
 	return (
 		<section
