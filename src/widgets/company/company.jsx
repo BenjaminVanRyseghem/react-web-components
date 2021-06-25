@@ -23,7 +23,7 @@ class Company extends React.Component {
 	render() {
 		return (
 			<FakeLoadingComponent as="chartData" data={data} loader={<LoadingChart/>}>
-				<CompanyChartWithLegend triggerExpandView={() => Company.triggerExpandView()}/>
+				<CompanyChartWithLegend showMore triggerExpandView={() => Company.triggerExpandView()}/>
 			</FakeLoadingComponent>
 		);
 	}

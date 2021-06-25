@@ -14,8 +14,13 @@ const buttonGroupStyle = {
 };
 
 export default class CompanyChartWithLegend extends React.Component {
+	static defaultProps = {
+		showMore: false
+	}
+
 	static propTypes = {
 		chartData: PropTypes.object.isRequired,
+		showMore: PropTypes.bool,
 		triggerExpandView: PropTypes.func.isRequired
 	}
 
@@ -30,19 +35,19 @@ export default class CompanyChartWithLegend extends React.Component {
 		return (
 			<>
 				<div className="widget-toolbar company-chart-legend">
-				    <div className="wk-button-group-right" style={buttonGroupStyle}>
+					<div className="wk-button-group-right" style={buttonGroupStyle}>
 						{chartData.labels.map((each, index) => <LegendEntry
-								key={index}
-								chartData={chartData}
-								index={index}
-								label={each}
-								toggleVisibility={this.toggleVisibility.bind(this)}
-							/>)}
-						<ShowMoreButton onTriggerExpandView={triggerExpandView} />
-				    </div>
+							key={index}
+							chartData={chartData}
+							index={index}
+							label={each}
+							toggleVisibility={this.toggleVisibility.bind(this)}
+						/>)}
+						{this.props.showMore && <ShowMoreButton onTriggerExpandView={triggerExpandView}/>}
+					</div>
 				</div>
 				<div className="widget-content">
-				    <CompanyChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
+					<CompanyChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
 				</div>
 			</>
 		);
