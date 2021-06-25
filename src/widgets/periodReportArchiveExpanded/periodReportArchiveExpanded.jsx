@@ -115,11 +115,11 @@ class PeriodReportArchiveExpanded extends React.Component {
 								let chartData = buildConfig(data.annualTrend);
 
 								return <>
-									<ChartLegend
-										datasets={chartData.datasets}
-										onToggleDataset={this.toggleDataset.bind(this)}
-									/>
-									<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
+										<ProfitAndLossChart ref={(ref) => (this.ref = ref)} chartData={chartData}/>
+										<ChartLegend
+											datasets={chartData.datasets}
+											onToggleDataset={this.toggleDataset.bind(this)}
+										/>
 								</>;
 							}}
 						</FakeLoadingComponent>
