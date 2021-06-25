@@ -75,6 +75,10 @@ a.wk-button {
 
 		.wk-card {
 			top: 0;
+
+			&:hover {
+				top: -.5rem;
+			}
 		}
 	}
 }
