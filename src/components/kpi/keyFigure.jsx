@@ -11,13 +11,16 @@ function formatDate(value) {
 	return value.periodName;
 }
 
-export default function KeyFigure({ kpi }) {
+export default function KeyFigure({ kpi, onClick }) {
 	let current = kpi.values[8]; // eslint-disable-line prefer-destructuring
 	let min = kpi.values[6]; // eslint-disable-line prefer-destructuring
 	let max = kpi.values[2]; // eslint-disable-line prefer-destructuring
 
 	return (
-		<section className="wk-card-container wk-card-container-h-dividers kpi-card">
+		<section
+			className="wk-card-container wk-card-container-h-dividers kpi-card clickable"
+			onClick={onClick}
+		>
 			<header className="wk-card-container-header kpi-value kpi-current">
 				<h2 style={{ color: orange }}>{formatCurrency(current)}</h2>
 				<div className="wk-text-muted-lighter wk-card-subtitle">{formatDate(current)}</div>
@@ -39,5 +42,6 @@ export default function KeyFigure({ kpi }) {
 }
 
 KeyFigure.propTypes = {
-	kpi: PropTypes.object.isRequired
+	kpi: PropTypes.object.isRequired,
+	onClick: PropTypes.func.isRequired
 };

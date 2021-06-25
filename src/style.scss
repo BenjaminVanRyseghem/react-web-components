@@ -29,6 +29,10 @@
 			margin-top: 16px;
 		}
 	}
+
+	&.kpi-card-container {
+		padding: 0 10px;
+	}
 }
 
 .wk-button {
@@ -183,4 +187,13 @@ a.wk-button {
 
 .widget-content.expanded .chartExample + .legend {
 	margin-top: 7.5px;
+}
+
+.clickable {
+	cursor: pointer;
+	transition: box-shadow 300ms cubic-bezier(.4, 0, .2, 1);
+
+	&:hover {
+		box-shadow: 0 .375rem .75rem 0 #0000001a;
+	}
 }
