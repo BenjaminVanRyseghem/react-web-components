@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const cardStyle = {
-	marginTop: 22,
+	marginBottom: 22,
+	minHeight: 330,
 	border: "1px solid #dadada",
 	borderLeft: "4px solid #c2de90",
 	padding: "1rem 1.4rem",
@@ -30,23 +31,6 @@ export default class CommentCard extends React.Component {
 		let { isDraft, author, comment, reportId } = this.props;
 		return (
 			<div className="commentCard">
-				<div className="widget-toolbar">
-					<div className="wk-button-group">
-						<a
-							className="wk-button wk-button-icon-right"
-							href={`https://web.foretagsplatsen.se/Accounting2/Company/a-damien-U-1204101330#!/period-report?id=${reportId}`}
-							rel="noreferrer"
-							target="_blank"
-						>
-							Open full report on finsit<span aria-hidden="true" className="wk-icon-export"/>
-						</a>
-						{isDraft && <button
-							className="wk-button wk-button-icon-right"
-						>
-							Publish the report<span aria-hidden="true" className="wk-icon-send"/>
-						</button>}
-					</div>
-				</div>
 				<div style={cardStyle}>
 					<div className="wk-avatar wk-avatar-extreme-large">
 						<div className="wk-fishbowl-thumbs">
@@ -57,6 +41,24 @@ export default class CommentCard extends React.Component {
 					</div>
 					<div dangerouslySetInnerHTML={{ __html: comment }}/>
 				</div>
+			    <div className="widget-toolbar">
+					<div className="wk-button-group">
+						<a
+							className="wk-button wk-button-icon-right"
+							href={`https://web.foretagsplatsen.se/Accounting2/Company/a-damien-U-1204101330#!/period-report?id=${reportId}`}
+							rel="noreferrer"
+							target="_blank"
+						>
+							Open full report in finsit<span aria-hidden="true" className="wk-icon-export"/>
+						</a>
+						{isDraft && <button
+							className="wk-button wk-button-icon-right"
+						>
+							Publish the report<span aria-hidden="true" className="wk-icon-send"/>
+						</button>}
+					</div>
+				</div>
+
 			</div>
 		);
 	}
