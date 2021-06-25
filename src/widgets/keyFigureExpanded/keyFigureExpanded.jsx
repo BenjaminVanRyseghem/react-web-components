@@ -39,6 +39,16 @@ const chartData = {
 	]
 };
 
+const commentBox = {
+	marginBottom: 22,
+	border: "1px solid #dadada",
+	borderLeft: "4px solid #c2de90",
+	padding: "1rem 1.4rem",
+	display: "flex",
+	alignItems: "start",
+	gap: "1.4rem"
+};
+
 class KeyFigureExpanded extends React.Component {
 	static nodeName = "finsit-keyfigure-expanded";
 
@@ -48,13 +58,19 @@ class KeyFigureExpanded extends React.Component {
 				<h2>{kpi.name} overview</h2>
 				<div className="widget-content expanded">
 					<div>
-
 						<FakeLoadingComponent
 							as="kpi"
 							data={kpi}
 							loader={<LoadingCard/>}
 						>
-							<KeyFigureComponent/>
+			{({ kpi }) => (
+				<>
+						<div style={commentBox}>
+							<div>{kpi.description}</div>
+						</div>
+				<KeyFigureComponent kpi={kpi}/>
+				</>)
+			}
 						</FakeLoadingComponent>
 					</div>
 					<div>
