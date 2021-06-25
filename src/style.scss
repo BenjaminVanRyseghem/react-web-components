@@ -123,7 +123,19 @@ a.wk-button {
 .kpi-card {
 	text-align: center;
 
+	.kpi-value.kpi-current {
+		padding: 1.3rem 2rem 1rem;
+
+		h2 {
+			font-weight: bold;
+			font-size: 2em;
+			margin-bottom: 0;
+		}
+	}
+
 	.kpi-value {
+		padding: 1.5rem;
+
 		.title {
 			margin-right: 1ch;
 		}

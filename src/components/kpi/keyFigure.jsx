@@ -20,7 +20,7 @@ export default function KeyFigure({ kpi }) {
 		<section className="wk-card-container wk-card-container-h-dividers kpi-card">
 			<header className="wk-card-container-header kpi-value kpi-current">
 				<h2 style={{ color: orange }}>{formatCurrency(current)}</h2>
-				<div className="wk-card-subtitle">{formatDate(current)}</div>
+				<div className="wk-text-muted-lighter wk-card-subtitle">{formatDate(current)}</div>
 			</header>
 			<div className="wk-card-container-body">
 				<div className="wk-card-container-body-cell kpi-value kpi-min">
