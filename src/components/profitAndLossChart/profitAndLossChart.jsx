@@ -6,8 +6,6 @@ import PropTypes from "prop-types";
 import React from "react";
 
 export default class ProfitAndLossChart extends React.Component {
-	static nodeName = "finsit-profit-and-loss";
-
 	static defaultProps = {
 		small: false
 	};
